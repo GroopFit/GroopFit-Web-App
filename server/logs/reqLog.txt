@@ -1,4 +1,0 @@
-20220927	14:32:40	a7e78b24-f48c-4a69-b86b-d48af06ed9b6	OPTIONS	http://localhost:3000	/auth/google
-20220927	14:32:40	a4dbcce8-781d-4283-8ac7-51bd7710f43a	POST	http://localhost:3000	/auth/google
-20220927	14:32:41	49de0e19-1c4d-470f-a887-b39ebad27151	OPTIONS	http://localhost:3000	/user/1
-20220927	14:32:41	d067b689-5f04-4f86-8c0a-16b51b30c5fa	GET	http://localhost:3000	/user/1

@@ -1,2 +1,0 @@
-20220926	14:11:50	5f9365e1-b205-4ce4-a3bc-e303f9434446	Error: Not allowed by CORS
-20220927	14:32:41	42ee3e9a-9afa-4f9a-8eb9-3b19ca71abeb	Error: ENOENT: no such file or directory, stat '/mnt/c/Users/jackss8/Documents/GitHub/GroopFit-Web-App/client/build/index.html'
