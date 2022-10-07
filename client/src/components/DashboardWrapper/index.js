@@ -133,7 +133,7 @@ class DashboardWrapper extends React.Component {
                       {/*         Link for Custom Lazy Loading Image Component Below          */}
                       {/* https://levelup.gitconnected.com/react-lazy-load-image-e6a5ca944f32 */}
                       <img alt="" src={ this.props.userData.info.userPicture} />
-                      {/* Task:   Make this a custom component or have it render                */}
+                      {/* Task:   Make this a custom component or have it render              */}
                       {/*        a default picture when it fails to load properly.            */}
                     </div>
                   </div>

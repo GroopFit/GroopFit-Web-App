@@ -124,8 +124,13 @@ form {
     border: none;
     /*display: block;*/
     /*border-radius: 2px;*/
-    background-color: #fafafa; 
+    background-color: #fafafa !important; 
     border: 1px solid lightgrey;
+}
+
+.uc__form input:valid {
+
+    /*background-color: #ffe8cc; */
 }
 
 .uc__form .email {

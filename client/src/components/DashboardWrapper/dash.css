@@ -175,6 +175,7 @@
     z-index: 9;
     position: absolute;
     right: 0;
+    display: flex;
   
     /*transition: 0.45s ease-in-out;*/
     /*-webkit-transition: all 1s ease-in;

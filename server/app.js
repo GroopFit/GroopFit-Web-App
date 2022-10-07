@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials'); 
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
-const PORT =  8000;
+const PORT =  process.env.PORT ? process.env.PORT : 8080;
 
 
 //mkdir -p "$d" && cp file "$d"
@@ -46,11 +46,12 @@ app.use(cookieParser());
 //---------------------------------------------------//
 
 //app.use('/register', require('./routes/register'));
+app.use('/promotion', require('./routes/api/promotion'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 //app.use('/logout', require('./routes/logout'));
 
-if (process.env.REACT_APP_ENVIORMENT === "production") {
+if (process.env.REACT_APP_ENVIRONMENT === "production") {
   console.log("We Are in Production Mode !!!!!!")
   console.log("This Folder is: ", path.join(__dirname, "../client/build"))
   const reactBuild = path.join(__dirname, "../client/build")
@@ -58,8 +59,6 @@ if (process.env.REACT_APP_ENVIORMENT === "production") {
 
   app.get("*", async (req, res) =>
     res.sendFile(path.join(reactBuild , "index.html"))
-    //res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-
   ); 
 } else {
   console.log("We Are in Development Mode !!!")

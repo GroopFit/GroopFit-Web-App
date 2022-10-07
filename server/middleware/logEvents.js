@@ -20,9 +20,13 @@ const logEvents = async (message, logName) => {
     }
 }
 
+/* ------------------------------------------------------- */
+/* Task: Make space padding for readablity between         */
+/*   the requested origin and the requested url            */        
+/* ------------------------------------------------------- */
+
 const logger = (req, res, next) => {
     logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt');
-    //console.log(`${req.method} ${req.path}`);
     next();
 }
 
