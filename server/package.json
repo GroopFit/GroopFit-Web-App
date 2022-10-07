@@ -8,6 +8,7 @@
     "development:env": "",
     "start:development": "concurrently -n 'client,server' -c 'green,blue' \"npm run client\" \"npm run server\" \"rm logs/reqLog.txt\"",
     "start:production": "env-cmd -f ../.env  node app",
+    "start:heroku": "node app",
     "start:build-run-production": "env-cmd -f ../.env node app",
     "client": "cd ../client && npm start",
     "server": "nodemon app.js",
