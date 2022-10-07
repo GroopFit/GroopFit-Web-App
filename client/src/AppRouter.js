@@ -1,5 +1,4 @@
 import React, {  lazy } from 'react';
-import { createBrowserHistory } from "history";
 import { connect } from 'react-redux';
 import { BrowserRouter, Routes, Route, Router, Navigate} from 'react-router-dom';
 
