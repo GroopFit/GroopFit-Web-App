@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials'); 
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
-const PORT =  process.env.PORT ? process.env.PORT : 8080;
+const PORT =  process.env.PORT ? process.env.PORT : 8000;
 
 
 //mkdir -p "$d" && cp file "$d"
@@ -76,8 +76,8 @@ app.use('/user', require('./routes/api/user'));
 app.use('/activity', require('./routes/api/activity'));
 
 
-
-
+  
+ 
 //A TEST FUNCTION ABOUT TO BE READY TO GET RID OF THIS
 app.post('/pingpong', async function (req, res) {
     console.log("We have recieved: ", req.body.data)

@@ -7,11 +7,16 @@ const { Client } = require('pg')
 class DatabaseManager {
     constructor(){
         this.DatabaseClient = new Client({ 
-            host:  process.env.DATABASE_HOST,
+           /* host:  process.env.DATABASE_HOST,
             user: process.env.DATABASE_USER,
             port: process.env.DATABASE_PORT,
             password: process.env.DATABASE_PASS,
             database: process.env.DATABASE_NAME,
+            */
+            connectionString: process.env.DATABASE_URL,
+            ssl: {
+              rejectUnauthorized: false
+            }
         })
         
         this.DatabaseClient.connect().then(() => {
