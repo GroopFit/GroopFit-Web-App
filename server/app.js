@@ -52,8 +52,8 @@ app.use('/refresh', require('./routes/refresh'));
 //app.use('/logout', require('./routes/logout'));
 
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
-  console.log("We Are in Production Mode !!!!!!")
-  console.log("This Folder is: ", path.join(__dirname, "../client/build"))
+  console.log("Production Enviorment Has Started Running:")
+ 
   const reactBuild = path.join(__dirname, "../client/build")
   app.use(express.static(reactBuild));
 
@@ -61,11 +61,9 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
     res.sendFile(path.join(reactBuild , "index.html"))
   ); 
 } else {
-  console.log("We Are in Development Mode !!!")
+  console.log("Development Enviorment Has Started Running:")
 
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
+  app.get("/", (req, res) => { res.send("API is running.."); });
 }
 
 //---------------------------------------------------//
@@ -84,8 +82,6 @@ app.post('/pingpong', async function (req, res) {
     res.send({ data: "pong" }) 
 });
 
-
-
 //custom Error Handler for the App
 app.use(errorHandler);
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`- Server running on port ${PORT}`));

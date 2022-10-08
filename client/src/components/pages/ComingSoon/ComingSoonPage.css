@@ -200,6 +200,14 @@ form {
 
 }
 
+.res-msg {
+    padding-top: 5px;
+    font-size: 11px;
+    font-style: italic;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 
 
@@ -252,7 +260,6 @@ form {
     }
 
 
-
 }
 /* Landscape */
 @media screen and (orientation:landscape) { 
@@ -293,6 +300,20 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
+
+    .title {
+        font-size: 20px;
+    }
+
+    .intro {
+        font-size: 12px;
+    }
+
+    .uc__description {
+        font-size: 12px;
+    }
+
+
     .uc__art {
         display: none;  
     }

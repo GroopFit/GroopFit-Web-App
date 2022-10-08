@@ -7,7 +7,8 @@ class ComingSoonPage extends React.Component {
     super(props);
 
     this.state = {
- 
+        msg: '',
+        color: 'green',
     }
   }
 
@@ -30,9 +31,12 @@ class ComingSoonPage extends React.Component {
                 /*--------------------------------------------------------------------/
                 /  Task: Put Code here to Handle the Failure of this request!         /
                 /--------------------------------------------------------------------*/
-            } 
-            throw new Error(`${serverResponse.status} ${serverResponse.statusText}`) 
-            return {}
+            } else if ( serverResponse.status === 409 ||  serverResponse.status ===  401) {
+                return await serverResponse.json()
+            } else {
+                throw new Error(`${serverResponse.status} ${serverResponse.statusText}`) 
+                return {}
+            }
         } 
         return await serverResponse.json()
     } catch (err) {
@@ -53,6 +57,11 @@ class ComingSoonPage extends React.Component {
         firstName: e.target.given_name.value,
         lastName: e.target.family_name.value,
     })
+
+    if( response.msg ){
+        this.setState({ msg: response.msg, color: response.err ? "red" : "green" })
+    } 
+
     console.log( response )
 
   }
@@ -83,6 +92,7 @@ class ComingSoonPage extends React.Component {
                                 <input type="submit" className="submit-small" value=""/>
                             </form>
                         </div>
+                        <div className="res-msg" style={{color: this.state.color}}>{this.state.msg}</div>
                     </div>
                 </div>
                 <div className="uc__art">
