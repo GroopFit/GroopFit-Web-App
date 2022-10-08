@@ -15,7 +15,7 @@ class ComingSoonPage extends React.Component {
 
   requestAddToEmailList = async (payload) => {
     //const fetchRoute = `http://localhost:8000/promotion/coming-soon`;
-    const fetchRoute = `https://groop-fit-web-app.herokuapp.com/promotion/coming-soon`;
+    const fetchRoute = `/promotion/coming-soon`;
     try {
         const serverResponse = await fetch(fetchRoute, {
             method: 'POST',
