@@ -27,6 +27,9 @@ code {
 .space-around {
   justify-content: space-around;
 }
+.space-between {
+  justify-content: space-between;
+}
 .flex-start {
   justify-content: flex-start;
 }
@@ -36,6 +39,16 @@ code {
 }
 .primary-text {
   color: #fff !important;
+}
+
+.align-center { align-items: center; }
+
+.medium-font {
+  font-size: 14px !important;
+}
+
+.r-10-pad {
+  padding-right: 10px;
 }
 
 
@@ -701,6 +714,41 @@ code {
   display: flex;
   flex-flow: column;
   padding: 15px 15px 5px 15px;
+  overflow: hidden;
+}
+
+.groopfit-container-header {
+  height: auto;
+  width: 100%;
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.groopfit-container-content {
+  width: 100%;
+  display: flex;
+  flex: 1 0;
+}
+
+
+
+.groopfit-container-footer {
+
+}
+
+.groopfit-container-footer-small {
+  width: calc(100% + 30px);
+  height: 30px;
+  display: flex;
+  background-color: #191919;
+  transform: translate(-15px, 5px);
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
+}
+
+.groopfit-container-title {
+  font-size: 20px;
+  color: #fff;
 }
 
 .graph-slider-container {
@@ -713,6 +761,46 @@ code {
   border-radius: 10px;
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
 } 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.groopfit-container-scroll::-webkit-scrollbar { display: none; }
+.groopfit-container-scroll {
+  flex: 1 0;
+  display: flex;
+  padding: 15px 0px;
+  margin: 0px 0px;
+  height: auto;
+  position: relative;
+  overflow-y: scroll;
+  z-index: 9;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */  
+  gap: 20px;
+}
+
+
+.groopfit-container-triangle {
+  width: 20px;
+  height: 20px;
+  border: 60px solid transparent;
+  border-top: 0;
+  border-bottom: 60px solid #50c878;
+  /* border-radius: 65px; */
+  position: absolute;
+  bottom: 0px;
+  right: -60px;
+  display: flex;
+  /* transform: rotate(90deg);*/
+  cursor: pointer;
+}
+
+.groopfit-container-triangle-inner {
+  min-height: 35px;
+  min-width: 35px;
+  transform: translate(-36px, 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -995,7 +1083,7 @@ code {
 .groop-dash-text {
   margin-top: 10px;
   color: #888;
-  margin-left: 15px;
+  margin-left: 10px;
   font-size: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -1005,8 +1093,8 @@ code {
 }
 
 .groop-dash-logo-box {
-  height: 45px;
-  width: 45px;
+  min-height: 45px;
+  min-width: 45px;
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
   border-radius: 10px;
   background-color: var(--Primary-Dashboard-Background);
@@ -1016,3 +1104,212 @@ code {
 /*-------------------------------------------------------------*/
 
 
+/*--------------------------------------------------------------*/
+/* Groop Member Card CSS Below                                  */
+/*--------------------------------------------------------------*/
+
+.groop-member-element {
+  display: flex;
+  margin: 0px 10px 0px 10px;
+  position: relative;
+  min-height: 55px;
+  /*border: 1.5px solid #888;*/
+  padding: 1px 0px;
+  background: transparent;
+  border-radius: 5px 5px 5px 5px;
+  flex-flow: row;
+  justify-content: space-between;
+
+
+}
+
+.groop-member-element-box {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 6px;
+  font-size: 16px;
+  position: relative;
+}
+
+.groop-member-col-element {
+  display: flex;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: normal;
+  align-items: center;
+  margin: 7.5px 0px 7.5px 12px;
+  font-size: 16px;
+  position: relative;
+  flex-flow: column;
+}
+
+.groop-member-col-box {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+}
+
+.groop-member-element-title {
+  font-size: 14px;
+}
+
+.groop-member-element-subtitle {
+  font-size: 12px;
+}
+
+
+.groop-member-picture {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px;
+  font-size: 16px;
+  position: relative;
+}
+
+.groop-member-picture img  {
+  height: 40px;
+  padding: 3px;
+  margin: 0px 0px;
+  border-radius: 10px;
+  background-color: transparent !important;
+} 
+
+
+.groop-member-status {
+  height: 20px;
+  width: 50px;
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgb(0 0 0) 0px 0px 2px 1px;
+}
+
+.online-status {
+  color: #fff;
+  background-color: #50c878;
+}
+
+.online-status::after {
+  content: 'online';
+}
+
+.offline-status {
+  background-color: #888;
+  color: var(--Primary-Dashboard-Background);
+}
+
+.offline-status::after {
+  content: 'offline';
+}
+
+
+/*---------------------------------------------------------------*/
+/* End of Groop Member Card CSS                                 */
+/*-------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------*/
+/* Groop Recent Activity Card CSS Below                         */
+/*--------------------------------------------------------------*/
+.groop-ra-element {
+  display: flex;
+  margin: 0px 10px 0px 10px;
+  position: relative;
+  min-height: 55px;
+  /*border: 1.5px solid #888;*/
+  padding: 1px 0px;
+  background: transparent;
+  border-radius: 5px 5px 5px 5px;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.groop-ra-element-box {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 6px;
+  font-size: 16px;
+  position: relative;
+}
+
+.groop-ra-element-box-first {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 6px;
+  font-size: 16px;
+  position: relative;
+}
+
+.groop-ra-element-box-first img  {
+  height: 40px;
+  padding: 3px;
+  margin: 0px 0px;
+  border-radius: 50%;
+  border: 2px solid #888;
+  background-color: transparent !important;
+  position: relative;
+} 
+
+.groop-ra-element-box-first-line {
+  border-left: 2.5px solid #888;
+  height: 37px;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  bottom: -30px;
+  left: 20px;
+}
+
+.groop-ra-col-element {
+  display: flex;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 7.5px 0px 7.5px 12px;
+  font-size: 16px;
+  position: relative;
+  flex-flow: column;
+}
+
+.groop-ra-col-box {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+}
+
+.groop-ra-element-title {
+  font-size: 14px;
+}
+
+.groop-ra-element-subtitle {
+  font-size: 12px;
+}
+
+/*---------------------------------------------------------------*/
+/* Groop Recent Activity Card CSS                               */
+/*-------------------------------------------------------------*/

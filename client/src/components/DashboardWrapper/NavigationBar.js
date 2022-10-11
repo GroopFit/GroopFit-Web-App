@@ -34,7 +34,7 @@ const SidebarPageData = [
     cName: 'nav-text'
   },
   {
-    title: 'My Groups',
+    title: 'My Groops',
     path: '/dashboard/groups',
     icon:  <HI.HiUserGroup />,
     cName: 'nav-text'

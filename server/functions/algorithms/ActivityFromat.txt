@@ -1,0 +1,20 @@
+Activty is in the format: 
+{
+    Name: String Users Name for the Activity
+    shortDesc: String Short Version of Users Description
+    longDesc: String Long version of Users Description
+    createDate: Timestamp( Date + Time ) The time at wich the activity was originally logged
+    modifiedDate: Timestamp( Date + Time ) Last Time Data was modified
+    fitnessType: String Name of the Physical Activity
+    fitnessDesc: String Explanation of the Fitness Type
+    amount: Int The amount of the Activty that was done
+    units: String The Units that the Activity is measured in
+    startTime:  Timestamp( Date + Time ) Representing When activity Started
+    endTime: Timestamp( Date + Time ) Representing When activity Ended
+    duration: Integer Representing Seconds
+    userID: Integer Unique per User
+    location: {
+        ...
+    }
+
+}

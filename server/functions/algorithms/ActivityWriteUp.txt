@@ -1,0 +1,24 @@
+Given a Users Activities Calculate:
+    Calculate % in a Single User Given Activity over:
+        Weeks
+        2-Weeks
+        Months
+        Year
+
+    Calculate % for Multiple Users Given Activity over:
+        Weeks
+        2-Weeks
+        Months
+        Year
+
+    Calculate how Many Total (Amount) A User has for a given Activity in:
+        Day
+        Week 
+        Month 
+        Year
+    
+    Calculate how Many Total (Amount) A Set of User has for a given Activity in:
+        Day
+        Week 
+        Month 
+        Year

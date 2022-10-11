@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import * as AiIcons from "react-icons/ai";
 import * as FA from "react-icons/fa";
+
 import GroopLeaderboardElement from "./GroopLeaderboardElement"
 
 
