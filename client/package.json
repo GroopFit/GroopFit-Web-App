@@ -13,6 +13,7 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

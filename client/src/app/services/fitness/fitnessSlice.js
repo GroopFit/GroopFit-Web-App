@@ -16,7 +16,7 @@ export const userSlice = createSlice({
         /*-------------------------------------------------------------------------*/
         [fitnessAPI.createActivityAsync.fulfilled]: (state, action) => {
             if( !action.payload.err ){
-                console.log("We have Recived: ", action.payload)
+                console.log("We have Received: ", action.payload)
                 
             } else {
                 console.log("Wait for next call we had Error: ", action.payload.err  )
