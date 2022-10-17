@@ -14,6 +14,7 @@ import ComingSoonPage from './components/pages/ComingSoon/index';
 const LoginSignupPage = lazy(() => import('./components/pages/LoginSignupPage/index'));
 const DashboardWrapper = lazy(() => import('./components/DashboardWrapper/index'));
 const DashboardHome = lazy(() => import('./components/pages/DashboardHome/index'));
+const DashboardChallenge = lazy(() => import('./components/pages/DashboardChallenge/index'));
 
 class AppRouter extends React.Component {
   render() {
@@ -46,8 +47,7 @@ class AppRouter extends React.Component {
                                   : <Navigate to="/" /> } path={'/dashboard/groups'} exact />
                 <Route element={  this.props.accessToken !== null ? 
                                     <DashboardWrapper >
-                                      {/* Need to create this routes component */}
-                                      <div>CHALLENGES PAGE</div>
+                                      <DashboardChallenge />
                                     </DashboardWrapper> 
                                   : <Navigate to="/" /> } path={'/dashboard/challenges'} exact />
               </> : <></> }
