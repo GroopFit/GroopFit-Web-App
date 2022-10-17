@@ -21,55 +21,59 @@ class DashboardHome extends React.Component {
         this.state = { 
 
           options: {
-          chart: {
-              type: 'donut',
-              dropShadow: {
-                enabled: false,
-                top: 1,
-                left: 1,
-                blur: 2,
-                opacity: 0.2,
-              }
-          },
-          dataLabels: {
-            enabled: false,
-            name: "davghj",
-          },
-          legend: {
-            show: false,
-          },
-          fill: {
-            type: 'gradient',
-          },
-          stroke: {
-            colors: ['#191919'],
-            width: 10,
-          },
-          plotOptions: {
-            pie: {
-              donut: {
-                labels: {
-                  show: true,
-                  color: '#fff',
-                  total: {
+            chart: {
+                type: 'donut',
+                foreColor: '#ccc',
+                dropShadow: {
+                  enabled: false,
+                  top: 1,
+                  left: 1,
+                  blur: 2,
+                  opacity: 0.2,
+                }
+            },
+            labels: ["Value 1", "Value 2", "Value 3", "Value 4", "Value 5"],
+            dataLabels: {
+              enabled: false,
+
+            },
+            legend: {
+              show: true,
+              position: 'left',
+              color: "#fff",
+            },
+            fill: {
+              type: 'gradient',
+            },
+            stroke: {
+              colors: ['#191919'],
+              width: 10,
+            },
+            plotOptions: {
+              pie: {
+                donut: {
+                  labels: {
                     show: true,
                     color: '#fff',
-                    fontSize: '22px',
-                    fontFamily: 'Montserrat, Arial, sans-serif',
-                    fontWeight: 'bold',
-                  },
-                  value: {
-                    color: '#fff',
-                    fontSize: '20px',
-                    fontFamily: 'Montserrat, Arial, sans-serif',
-                  },
-          
-          
-          
+                    total: {
+                      show: true,
+                      color: '#fff',
+                      fontSize: '22px',
+                      fontFamily: 'Montserrat, Arial, sans-serif',
+                      fontWeight: 'bold',
+                    },
+                    value: {
+                      color: '#fff',
+                      fontSize: '20px',
+                      fontFamily: 'Montserrat, Arial, sans-serif',
+                    },
+            
+            
+            
+                  }
                 }
               }
             }
-          }
         } 
       };
     }
@@ -100,14 +104,13 @@ class DashboardHome extends React.Component {
             <div className="overview-wrapper-1" >
               <div className="overview-container-2 dashboard-container" >
                 <div className="new-dashboard-card overview-time-breakdown-card" >
-                  <div className="overview-time-breakdown-card-top" > Workout Breakdown </div>
+                  <div className="overview-time-breakdown-card-top" > Workout Hours Breakdown </div>
                   <div className="overview-time-breakdown-card-mid flex center">
                     <div className="overview-time-breakdown-card-chart flex center">
                       <ReactApexChart options={this.state.options} series={[44, 55, 41, 17, 15]} type="donut" height={275} width={375} />
                     </div>
                     <div className="overview-time-breakdown-card-mid-content">
-                      <div className="flex flow-row" ><div className="dashboard-card-percentage">8%</div>increase from last 30 days </div>
-                      <div className="tiny-text">Calculated over the last 30 days</div>
+                      <div className="tiny-text flex flow-row baseline "><div className="dashboard-card-percentage">8%</div> {" " + "Increase"}  calculated over the last 30 days</div>
                     </div>
                   </div>
                   <div className="overview-time-breakdown-card-bottom " >
