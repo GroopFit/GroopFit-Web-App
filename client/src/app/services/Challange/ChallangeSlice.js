@@ -1,6 +1,6 @@
 import { createAsyncThunk , createSlice } from '@reduxjs/toolkit';
 import store from '../../store'
-import * as fitnessAPI from './ChallangeAPI'
+import * as challangeAPI from './ChallangeAPI'
 
 export const userSlice = createSlice({
     name: "ChallangeSlice", 
@@ -10,7 +10,7 @@ export const userSlice = createSlice({
     }, 
     reducers:{},
     extraReducers: {
-        [fitnessAPI.createChallangeAsync.fulfilled]: (state, action) => {
+        [challangeAPI.createChallangeAsync.fulfilled]: (state, action) => {
             if( !action.payload.err ){
                 console.log("We have Received: ", action.payload)
                 
