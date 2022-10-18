@@ -72,10 +72,10 @@ class DatabaseManager {
         }
     }
 
-    async UpdateUserName( Values ) {
+    async UpdateGivenName( Values ) {
         try {
             const res = await this.DatabaseClient.query(
-                `UPDATE "users" set name = $1 where id = $2;`, Values
+                `UPDATE "users" set givenName = $1 where id = $2;`, Values
             )
             return { successful: true}  
         } catch (err) {
