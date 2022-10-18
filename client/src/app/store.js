@@ -1,6 +1,7 @@
 import { configureStore,  getDefaultMiddleware  } from '@reduxjs/toolkit';
 import userReducer from './services/user/userSlice';
 import fitnessReducer from './services/fitness/fitnessSlice';
+import notificationReducer from './services/notification/notificationSlice';
 
 /*---------------------------------------------------------*/
 /* Task: Make a Redux Store Slice to store statistics data */
@@ -14,9 +15,11 @@ import fitnessReducer from './services/fitness/fitnessSlice';
 export default configureStore({
   reducer: {
     /* Contains User Data and Authentication Data */
-    userData: userReducer,
+    userData: userReducer, 
+
     /* Contains Clients Fitness Data */
     fitnessData: fitnessReducer, 
+    notificiationData: notificationReducer,
   },
  middleware: getDefaultMiddleware({
     serializableCheck: false
