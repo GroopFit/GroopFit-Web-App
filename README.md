@@ -3,13 +3,6 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![RCOS Contributors][contributors-shield]][contributors-url]
 [![Other Contributors][other-contributors-shield]][contributors-url]
 [![Apache License][license-shield]][license-url]
@@ -19,8 +12,8 @@
 <!--
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="">
+    <img src="" alt="Logo" width="80" height="80">
   </a>
 
 </div>
@@ -87,7 +80,6 @@ To avoid issues with cloning and testing the repository, ensure the following te
     ```sh
     npm install npm@latest -g
     ```
-2. 
 
 ### Installation
 
@@ -149,12 +141,12 @@ Distributed under Apache License 2.0. See `LICENSE.txt` for more information.
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [150 Badges for Github](https://dev.to/envoy_/150-badges-for-github-pnk)
+* [React JS Full Course for Beginners](https://www.youtube.com/watch?v=RVFAyFWO4go&t=39s&ab_channel=DaveGray)
+* [Node.js Full Course for Beginners](https://www.youtube.com/watch?v=f2EqECiTBL8&start=11729&ab_channel=DaveGray)
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [150 Badges for Github](https://dev.to/envoy_/150-badges-for-github-pnk)
 * [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -169,9 +161,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-shield]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 [license-url]: https://github.com/GroopFit/GroopFit-Web-App/blob/main/LICENSE
 
-
-
-
 [PostgreSQL]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
 [PostgreSQL-url]: https://www.postgresql.org/
 [Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
@@ -182,7 +171,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [React-url]: https://reactjs.org/
 [Heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
 [Heroku-url]: https://dashboard.heroku.com/login
-
 
 [Bootstrap]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
