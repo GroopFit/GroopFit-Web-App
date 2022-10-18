@@ -71,6 +71,18 @@ class DatabaseManager {
             return { successful: false, response: null, error: err }  
         }
     }
+
+    async UpdateUserName( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set name = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
 }
 
 module.exports = new DatabaseManager()
