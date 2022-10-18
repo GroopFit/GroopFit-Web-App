@@ -72,6 +72,20 @@ class DatabaseManager {
         }
     }
 
+    //db functions for updating DB fields
+    
+    async UpdateEmail( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set email = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
     async UpdateGivenName( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -83,6 +97,199 @@ class DatabaseManager {
             return { successful: false, response: null, error: err }
         }
     }
+
+    async UpdateFamilyName( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set familyName = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateHeightValue( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set heightValue = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateWeightValue( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set weightValue = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateHeightUnits( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set heightUnits = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateWeightUnits( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set weightUnits = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateAgeGroup( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set ageGroup = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateGender( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set gender = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateBirthdate( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set birthdate = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateIsOnline( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set isOnline = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateLastLogin( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set lastLogin = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdatCreateDate( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set createDate = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateModifiedDate( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set modifiedDate = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdatePaymentTierId( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set paymentTierId = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateLocationId( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set locationId = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdateMilitaryDataId( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set militaryDataId = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+
+    async UpdatePictureUrl( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(
+                `UPDATE "users" set pictureUrl = $1 where id = $2;`, Values
+            )
+            return { successful: true}  
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }
+        }
+    }
+    //end of DB functions to update Users
 }
 
 module.exports = new DatabaseManager()
