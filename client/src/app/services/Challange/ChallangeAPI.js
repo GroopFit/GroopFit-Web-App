@@ -25,7 +25,7 @@ export const createChallangeAsync = createAsyncThunk(
                     /  Task: Limit the recursion to a max of 5 times using the variable   /
                     /  state.userData.info.refreshTokenRequestCount to do this.           /
                     /--------------------------------------------------------------------*/
-                    await thunkAPI.dispatch(createActivityAsync(payload)).payload
+                    await thunkAPI.dispatch(createChallangeAsync(payload)).payload
                     return { err: 404 }
                 } 
                 throw new Error(`${serverResponse.status} ${serverResponse.statusText}`) 
