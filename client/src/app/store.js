@@ -1,6 +1,7 @@
 import { configureStore,  getDefaultMiddleware  } from '@reduxjs/toolkit';
 import userReducer from './services/user/userSlice';
 import fitnessReducer from './services/fitness/fitnessSlice';
+import challangeReducer from './services/Challange/ChallangeSlice';
 import notificationReducer from './services/notification/notificationSlice';
 
 /*---------------------------------------------------------*/
@@ -19,6 +20,7 @@ export default configureStore({
 
     /* Contains Clients Fitness Data */
     fitnessData: fitnessReducer, 
+    challangeData: challangeReducer
     notificiationData: notificationReducer,
   },
  middleware: getDefaultMiddleware({

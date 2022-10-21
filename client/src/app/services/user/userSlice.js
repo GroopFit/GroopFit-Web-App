@@ -17,8 +17,8 @@ export const userSlice = createSlice({
             userId: null,
             email: null,
             fullName: null,
+            userPicture: null
         },
-        userPicture: null,
         
     },
     reducers:{ /* To be filled in later if needed*/ },
