@@ -20,7 +20,7 @@ export default configureStore({
 
     /* Contains Clients Fitness Data */
     fitnessData: fitnessReducer, 
-    challangeData: challangeReducer
+    challangeData: challangeReducer,
     notificiationData: notificationReducer,
   },
  middleware: getDefaultMiddleware({
