@@ -428,6 +428,7 @@ code {
   position: absolute;
   height: 40px;
   width: 40px;
+  color: #ffffff;
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
   border-radius: 10px;
   left: -15px;
@@ -523,6 +524,13 @@ code {
 }
 .dashboard-horizontal-box-item-right:hover {
   color: #ec5800;
+}
+
+.dashboard-horizontal-box-item-icon:hover {
+  cursor: pointer;
+  color: #195bce;
+  
+
 }
 
 .dashboard-horizontal-box-item-accent {
