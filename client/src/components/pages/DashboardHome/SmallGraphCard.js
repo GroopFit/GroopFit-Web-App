@@ -4,13 +4,22 @@ import ReactApexChart from 'react-apexcharts'
 
 import * as FA from "react-icons/fa"; 
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 class SmallGraphCard extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-
+           
           options: {
             chart: {
               id: 'spark1',
@@ -72,8 +81,8 @@ class SmallGraphCard extends React.Component {
         return  (
             <div className="two-by-two-e " >
                 <div className={`new-dash-card-full ${this.props.color}-gradient flex center`} > 
-                    <div className="two-by-two-chart"> 
-                        <ReactApexChart options={this.state.options} series={ [{data: this.props.data}] } type="line" height={100} width={200} />
+                    <div id={this.state.ID} className="two-by-two-chart"> 
+                        <ReactApexChart options={this.state.options} series={ [{data: this.props.data}] } type="line" height={75} width={200} />
                     </div>
                     <div className="two-by-two-info">
                         <div className="two-by-two-info-num">{this.props.data.reduce((a, b) => a + b)}</div>
@@ -84,6 +93,10 @@ class SmallGraphCard extends React.Component {
                         { this.props.activity === "swimming" ? <FA.FaSwimmer color={'#fff'} fontSize={'1.80rem'} /> : <></> }
                         { this.props.activity === "biking" ? <FA.FaBiking color={'#fff'} fontSize={'1.80rem'} /> : <></> }
                         { this.props.activity === "walking" ? <FA.FaWalking color={'#fff'} fontSize={'1.80rem'} /> : <></> }
+                    </div>
+                    <div className="two-by-two-title-box">
+                        <div className="two-by-two-title white-text text-shadow ">{capitalizeFirstLetter(this.props.activity)}</div>
+                        <div className="two-by-two-subtitle white-text text-shadow ">This Week</div>
                     </div>
                 </div>
             </div>

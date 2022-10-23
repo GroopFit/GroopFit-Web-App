@@ -5,39 +5,26 @@ import * as IoIcons from 'react-icons/io';
 import * as GoIcons from 'react-icons/go';
 import * as HiIcons from 'react-icons/hi';
 
+import * as IO from "react-icons/io";
+import * as IO5 from "react-icons/io5";
+import * as HI from "react-icons/hi";
+
+import SmallGraphCard from '../DashboardHome/SmallGraphCard'
+import SmallButtonCard from '../DashboardHome/SmallButtonCard'
+
 import DashboardCard from '../../DashboardCard/index'
 import FitnessTab from '../../DashboardFitnessTab/index'
 import { createActivityAsync } from '../../../app/services/fitness/fitnessAPI';
-
-const FitnessList = [   
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'blue', activity: 'swimming', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'orange', activity: 'biking', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'orange', activity: 'biking', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'blue', activity: 'swimming', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'blue', activity: 'swimming', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'orange', activity: 'biking', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'blue', activity: 'swimming', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'orange', activity: 'biking', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'green', activity: 'running', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'blue', activity: 'swimming', value: 2.7, units: 'mi', time: '00:20:00'},
-                        {color: 'orange', activity: 'biking', value: 2.7, units: 'mi', time: '00:20:00'},
-                    ]
-
-//<FitnessTab  iconColor={'green'}  activity={"running"} value={'2.7'} units={'mi'} time={'00:20:00'} />
 
 class DashboardActivities extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-            type: "running",
+            type: "walking",
             name: "",
             desc: "",
+            units: 'miles',
             amount: 0.0,
             start_time: null,
             end_time: null,
@@ -46,11 +33,13 @@ class DashboardActivities extends React.Component {
     }
 
     componentDidMount(){
+        console.log(this.props.fitnessData)
 
     } 
     
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state)
+        console.log("PROPS ARE HERE: " , this.props)
+        console.log("STATE IS HERE: " , this.state)
     } 
 
     handleSubmit = (event) => {
@@ -59,6 +48,7 @@ class DashboardActivities extends React.Component {
             type: this.state.type,
             name: this.state.name,
             desc: this.state.desc,
+            units: this.state.units,
             amount: this.state.amount,
             startTime: this.state.start_time,
             endTime: this.state.end_time,
@@ -76,23 +66,55 @@ class DashboardActivities extends React.Component {
         this.setState({ showActivityList: !this.state.showActivityList })
     }
 
+    getActivityColor = (activityName, activityColors) => {
+        return activityColors.find(element => element.activity === activityName).color;
+    }
+
+    changeActivityType = (newType) => {
+        this.setState({  type: newType })
+    }
+
+    handleColor = (activityType) => {
+        if(activityType === this.state.type){
+            return this.getActivityColor(activityType, this.props.activityColors)
+        } else {return "black"}
+
+    }
+
+
     render() {
-        return  <div className="dash-inner-wrapper">
-                    <div className="dashboard-layout-1 full-wh">
-                        {/*
-                            <DashboardCard iconColor={'green'}  activity={"running"} value={'3,000'} units={'mi'} percentage={27} />
-                            <DashboardCard iconColor={'orange'}  activity={"biking"} value={'500'}   units={'m'} percentage={5} />
-                            <DashboardCard iconColor={'blue'} activity={"swimming"} value={'4,500'} units={'km'} percentage={3.5} />
-                        */}
-                        <div className="dashboard-layout-1-first flex center flex-row" >
-                            <DashboardCard iconColor={'green'}  activity={"running"} value={'30'} units={'mi'} percentage={27} />
-                            <DashboardCard iconColor={'orange'}  activity={"biking"} value={'500'}   units={'m'} percentage={5} />
-                            <DashboardCard iconColor={'blue'} activity={"swimming"} value={'15'} units={'km'} percentage={3.5} />
-                            <DashboardCard iconColor={'orange'} activity={"biking"} value={'17'} units={'km'} percentage={3.5} />
-                            <DashboardCard iconColor={'blue'} activity={"swimming"} value={'10'} units={'km'} percentage={3.5} />
-                            <DashboardCard iconColor={'green'} activity={"running"} value={'20'} units={'km'} percentage={3.5} />
+        return  (
+            <div className="dashboard-page-scroll-wrapper">
+                <div className="dashboard-flex-grid-wrapper">
+                    <div className="activity-statistics-container dashboard-container padding-top-none  flex flow-col">
+                        <div className="activity-statistics-wrapper" >
+                            <div className="activity-container-1 dashboard-container dashboard-container-half-height" >
+                                <div className="new-dashboard-card flex center teal-gradient" >
+                                    <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
+                                </div> 
+                            </div>
+                            <div className="activity-container-1 dashboard-container dashboard-container-half-height" >
+                                <div className="new-blank-card  two-by-two" >
+                                    <SmallGraphCard color={"blue"} activity={"running"} data={[ 1,2,0,4,5,2,6 ]} units={"Miles"} />
+                                    <SmallButtonCard title="Join Groop" color="purple" subtitle={`In ${1} out of ${4}`}  buttonText="Join Groop">
+                                        <HI.HiUserGroup  color={'#fff'} fontSize={'1.80rem'} />
+                                    </SmallButtonCard>
+                                    <SmallButtonCard title="Add Goals" color="pink" subtitle={`Test Yourself`}  buttonText="Add Goals">
+                                        <IO5.IoRibbon color={'#fff'} fontSize={'1.80rem'} />
+                                    </SmallButtonCard>
+                                    <SmallGraphCard color={"teal"} activity={"walking"} data={[ 30,25,28,22,17,27,25 ]} units={"Meters"} />
+                                </div>
+                            </div>
+                            <div className="dashboard-full-container dashboard-container show-big-screen dashboard-container-half-height" >
+                                {/* These are the same */}
+                                <div className="new-dashboard-card flex center purple-gradient" >
+                                    <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
+                                </div> 
+                            </div>
                         </div>
-                        <div className="dashboard-layout-1-second flex center ">
+                    </div>
+                    <div className="activity-log-container dashboard-container activity-log-container-height dashboard-container flex flow-col">
+                        <div className="new-dashboard-card " >
                             <div className="dashboard-horizontal-box flex flow-col">
                                 <div className="dashboard-horizontal-box-title" >
                                     <div className="dashboard-horizontal-box-title-text">
@@ -102,27 +124,37 @@ class DashboardActivities extends React.Component {
                                         <IoIcons.IoMdSettings  fontSize={'1.35rem'} />
                                     </div>
                                 </div>
+
                                 <div className="dashboard-horizontal-box-line" />
+                                <div className="dashboard-horizontal-box-bottom flex center" >
+                                    <div className="dashboard-horizontal-add-activity flex center">
+                                        { this.state.showActivityList ? 'Log an Activity' : 'Back to Activity Log'}
+                                        <button onClick={this.logAnActivityOnClick}/>
+                                    </div>
+                                </div>   
+                                <div className="dashboard-horizontal-box-line" />    
+                            
                                 <div className={`dashboard-horizontal-box-content${this.state.showActivityList ? '-scroll' : ''} flex flow-col`} >
-                                    { this.state.showActivityList ? FitnessList.map((element) => {
-                                        return  <FitnessTab iconColor={element.color}  activity={element.activity} value={element.value} 
-                                                            units={element.units} time={element.time} />
-                                        }) : 
+                                    { this.state.showActivityList ?
+                                        (this.props.fitnessData.allActvities ? this.props.fitnessData.allActvities.map((element) => {
+                                            return  <FitnessTab iconColor={this.getActivityColor(element.fitnessName, this.props.activityColors)}  activityData={element} />
+                                            } 
+                                        ) : <></>) : 
                                         <form  className="flex flow-col full-wh" autoComplete="off" onSubmit={this.handleSubmit}>
                                             <div className="form-icons-wrapper">
-                                                <div className="form-icon flex center icon-bg-pink">
+                                                <div className={`form-icon flex center icon-bg-${this.handleColor("walking")}`} onClick={() => {this.changeActivityType("walking")}} >
                                                     <FA.FaWalking color={'#fff'} fontSize={'1.8rem'} />
                                                 </div>
-                                                <div className="form-icon flex center icon-bg-blue">
+                                                <div className={`form-icon flex center icon-bg-${this.handleColor("swimming")}`} onClick={() => {this.changeActivityType("swimming")}} >
                                                     <FA.FaSwimmer color={'#fff'} fontSize={'1.8rem'} />
                                                 </div>
-                                                <div className="form-icon flex center  icon-bg-orange">
+                                                <div className={`form-icon flex center icon-bg-${this.handleColor("biking")}`} onClick={() => {this.changeActivityType("biking")}} >
                                                     <FA.FaBiking color={'#fff'} fontSize={'1.8rem'} />
                                                 </div>
-                                                <div className="form-icon flex center icon-bg-green">
+                                                <div className={`form-icon flex center icon-bg-${this.handleColor("running")}`} onClick={() => {this.changeActivityType("running")}} >
                                                     <FA.FaRunning color={'#fff'} fontSize={'1.8rem'} />
                                                 </div>                   
-                                                <div className="form-icon flex center icon-bg-black">
+                                                <div className="form-icon flex center icon-bg-black" >
                                                     <FA.FaQuestion color={'#fff'} fontSize={'1.8rem'} />
                                                 </div>
                                                 <div className="form-icon flex center icon-bg-black">
@@ -139,10 +171,10 @@ class DashboardActivities extends React.Component {
                                                 <div className="flex flow-row">
                                                     <input  className="activity-input" type="number" name="amount" placeholder="00.00" onChange={this.handleInputChange} required/>
                                                     <select className="activity-input" name="units" id="langs"  onChange={this.handleInputChange} required>
-                                                        <option value="mi">mi</option>
-                                                        <option value="ft">ft</option>
-                                                        <option value="m">m</option>
-                                                        <option value="km">km</option>     
+                                                        <option value="miles">mi</option>
+                                                        <option value="feet">ft</option>
+                                                        <option value="meters">m</option>
+                                                        <option value="kilometers">km</option>     
                                                     </select>
                                                 </div>
                                             </div>
@@ -158,85 +190,30 @@ class DashboardActivities extends React.Component {
                                         </form>
                                     }
                                 </div>
-                                <div className="dashboard-horizontal-box-line" />
-                                <div className="dashboard-horizontal-box-bottom flex center" >
-                                    <div className="dashboard-horizontal-add-activity flex center">
-                                        { this.state.showActivityList ? 'Log an Activity' : 'Back to Activity Log'}
-                                        <button onClick={this.logAnActivityOnClick}/>
-                                    </div>
-                                </div>   
-                            </div>
-                        </div>
-                        <div className="dashboard-layout-1-third flex flow-row " >
-                            <div className="dashboard-graph-container">
-                                <div className="dashboard-container-model flex center icon-bg-pink" >
-                                    <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
-                                </div>
-                                <div className="dashboard-graph-container-title-box">
-                                    <div className="dashboard-graph-container-title">Walking Preformance</div>
-                                    <div className="dashboard-graph-container-subtitle">
-                                        (<div className="percentage">+17%</div>)
-                                        increase over the last week
-                                    </div>
-                                </div>
-                                <div className="dashboard-graph-container-bottom" >
-                                    <HiIcons.HiOutlineClock color={'#888'}  fontSize={'1.150rem'} />
-                                    <div style={{padding: '0px 2px 0px 4px'}}>updated 4 minutes ago</div>
+                                <div className="groopfit-container-footer-short  flex space-around align-center medium-font" >
+                                    <FA.FaAngleDoubleDown color={'#888'} fontSize={'1.0rem'} />
+                                    <>All Recent </>
+                                    <FA.FaAngleDoubleDown color={'#888'} fontSize={'1.0rem'} />
                                 </div>
                             </div>
-                            <div className="dashboard-graph-container">
-                                <div className="dashboard-container-model flex center icon-bg-orange" >
-                                    <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
-                                </div>
-                                <div className="dashboard-graph-container-title-box">
-                                    <div className="dashboard-graph-container-title">Running Preformance</div>
-                                    <div className="dashboard-graph-container-subtitle">
-                                        (<div className="percentage">+15%</div>)
-                                        increase over the last week
-                                    </div>
-                                </div>
-                                <div className="dashboard-graph-container-bottom" >
-                                    <HiIcons.HiOutlineClock color={'#888'}  fontSize={'1.150rem'} />
-                                    <div style={{padding: '0px 2px 0px 4px'}}>updated 4 minutes ago</div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
+                <div className="dashboard-flex-grid-wrapper margin-top-none">
+                    <div className="dashboard-full-container dashboard-container show-med-screen " >
+                        {/* These are the same */}
+                        <div className="new-dashboard-card height-300 flex center purple-gradient" >
+                            <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
 
-const MapStateToProps = (state) => ({ });
+const MapStateToProps = (state) => ({
+    fitnessData: state.fitnessData,
+    activityColors: state.settingsData.activityColors,
+ });
 export default connect(MapStateToProps)(DashboardActivities)
-
-
-
-    
-//https://www.freecodecamp.org/news/html-select-tag-how-to-make-a-dropdown-menu-or-combo-list/
- /*   render() {
-        return  <div className="dash-inner-wrapper">
-                    <div className="full-wh flex center child-padding" >
-                        <form autoComplete="off" onSubmit={this.handleSubmit}>
-                            <input type="text" name="name" placeholder="Title" onChange={this.handleInputChange}/>
-                            <input type="textarea" name="desc" placeholder="Notes"  onChange={this.handleInputChange}/>
-                            <select name="type" id="lang"  onChange={this.handleInputChange} required>
-                                <option value="walking">Walking</option>
-                                <option value="running">Running</option>
-                                <option value="biking">Biking</option>
-                                <option value="swimming">Swimming</option>
-                            </select>
-                            <input type="number" name="amount" onChange={this.handleInputChange} required/>
-                            <select name="units" id="langs"  onChange={this.handleInputChange} required>
-                                <option value="ft">ft</option>
-                                <option value="mi">mi</option>
-                                <option value="m">m</option>
-                                <option value="km">km</option>     
-                            </select>
-                            <input type="datetime-local" name="start_time"  onChange={this.handleInputChange} required/>
-                            <input type="datetime-local" name="end_time"  onChange={this.handleInputChange} required/>
-
-                            <input type="submit" />
-                        </form>
-                    </div>
-                </div>
-    }*/
