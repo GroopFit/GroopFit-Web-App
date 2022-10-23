@@ -82,7 +82,7 @@ class SmallGraphCard extends React.Component {
             <div className="two-by-two-e " >
                 <div className={`new-dash-card-full ${this.props.color}-gradient flex center`} > 
                     <div id={this.state.ID} className="two-by-two-chart"> 
-                        <ReactApexChart options={this.state.options} series={ [{data: this.props.data}] } type="line" height={100} width={200} />
+                        <ReactApexChart options={this.state.options} series={ [{data: this.props.data}] } type="line" height={75} width={200} />
                     </div>
                     <div className="two-by-two-info">
                         <div className="two-by-two-info-num">{this.props.data.reduce((a, b) => a + b)}</div>

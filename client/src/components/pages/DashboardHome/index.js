@@ -208,13 +208,13 @@ class DashboardHome extends React.Component {
 
 
     componentDidMount(){
-
+      console.log(this.props.userData)
     } 
     
 
   render() {
     return ( 
-      <div className="testing">
+      <div className="dashboard-page-scroll-wrapper">
         <div className="dashboard-flex-grid-wrapper">
           <div className=" overview-welcome-container dashboard-container flex flow-col">
             <div className="new-blank-card  overview-welcome-box" >
@@ -242,7 +242,7 @@ class DashboardHome extends React.Component {
                     </div>
                   </div>
                   <div className="overview-time-breakdown-card-bottom " >
-                    <button className="flex center" onClick={() => alert("This Functionality is Incomplete")}> More Details </button>
+                    <button className="flex center" onClick={() => alert("This Functionality is Incomplete")}  > More Details </button>
 
                   </div>
                 </div>
@@ -257,7 +257,6 @@ class DashboardHome extends React.Component {
                     <IO5.IoRibbon color={'#fff'} fontSize={'1.80rem'} />
                   </SmallButtonCard>
                   <SmallGraphCard color={"teal"} activity={"walking"} data={[ 30,25,28,22,17,27,25 ]} units={"Meters"} />
-                
                 </div>
               </div>  
               <div className="overview-container-3  dashboard-container" >
