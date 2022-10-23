@@ -15,11 +15,10 @@ const UserIcon = (props) => {
     if (props.box_shadow != null) {
         style_str["box-shadow"] = props.box_shadow;
     }
-    const userData =  useSelector(state => state.userData);
+    const userData = useSelector(state => state.userData);
     return (
     <>
-        <img alt={userData.info.userPicture} src={userData.info.userPicture} 
-        style={style_str}/>
+        <img alt={"image"} src={userData.info.userPicture} style={style_str}/>
     </>
     )
 }

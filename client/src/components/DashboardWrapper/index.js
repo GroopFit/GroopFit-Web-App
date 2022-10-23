@@ -11,6 +11,7 @@ import NavigationBar from "./NavigationBar"
 import UserIcon from "../pages/DashboardHome/UserIcon";
 
 import { getUserDataAsync } from '../../app/services/user/userAPI';
+import { getUserActivitiesAsync } from '../../app/services/fitness/fitnessAPI';
 
 import Logo from '../../img/temp-logo.png'
 import { CgMenu } from "react-icons/cg";
@@ -76,6 +77,10 @@ class DashboardWrapper extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getUserDataAsync())
+    if( !this.props.fitnessData.allActvities ){
+      console.log("BOOOOOOOOOOM")
+      this.props.dispatch(getUserActivitiesAsync())
+    }
     window.addEventListener('resize', this.updateContentDimensions);
   }
 
@@ -156,6 +161,7 @@ class DashboardWrapper extends React.Component {
 
 const MapStateToProps = (state) => ({ 
   userData: state.userData,
+  fitnessData: state.fitnessData,
   accessToken: state.userData.authaccessToken
 });
 export default connect(MapStateToProps)(DashboardWrapper)

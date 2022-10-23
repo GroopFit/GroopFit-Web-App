@@ -3,6 +3,7 @@ import userReducer from './services/user/userSlice';
 import fitnessReducer from './services/fitness/fitnessSlice';
 import challangeReducer from './services/Challange/ChallangeSlice';
 import notificationReducer from './services/notification/notificationSlice';
+import settingsReducer from './services/settings/settingsSlice';
 
 /*---------------------------------------------------------*/
 /* Task: Make a Redux Store Slice to store statistics data */
@@ -22,6 +23,7 @@ export default configureStore({
     fitnessData: fitnessReducer, 
     challangeData: challangeReducer,
     notificiationData: notificationReducer,
+    settingsData: settingsReducer,
   },
  middleware: getDefaultMiddleware({
     serializableCheck: false

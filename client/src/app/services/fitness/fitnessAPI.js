@@ -6,7 +6,7 @@ export const createActivityAsync = createAsyncThunk(
     'user/createActivity/createActivityAsync',
     async (payload, thunkAPI) => {
         console.log("Starting to send data: ", payload)
-        let fetchRoute = `http://localhost:8000/activity/`;
+        let fetchRoute = `http://localhost:8000/activity/${store.getState().userData.info.userId}`;
         try {
             const serverResponse = await fetch(fetchRoute, {
                 method: 'POST',
@@ -27,6 +27,41 @@ export const createActivityAsync = createAsyncThunk(
                     /  state.userData.info.refreshTokenRequestCount to do this.           /
                     /--------------------------------------------------------------------*/
                     await thunkAPI.dispatch(createActivityAsync(payload)).payload
+                    return { err: 404 }
+                } 
+                throw new Error(`${serverResponse.status} ${serverResponse.statusText}`) 
+            } 
+            return await serverResponse.json()
+        } catch (err) {
+            console.log("TESTING")
+        } 
+    }  
+);
+
+export const getUserActivitiesAsync = createAsyncThunk(
+    'user/ getUserActivities/getUserActivitiesAsync',
+    async (payload, thunkAPI) => {
+        console.log("Starting to send data: ", payload)
+        let fetchRoute = `http://localhost:8000/activity/${store.getState().userData.info.userId}`;
+        try {
+            const serverResponse = await fetch(fetchRoute, {
+                method: 'GET',
+                mode: 'cors',
+                headers: { 
+                     'Content-Type': 'application/json',
+                     'Authorization':  `Bearer ${store.getState().userData.auth.accessToken}`  
+                 },
+                credentials: 'include'
+            });
+
+            if( !serverResponse.ok ){
+                if( serverResponse.status === 403 ){
+                    await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync())
+                    /*--------------------------------------------------------------------/
+                    /  Task: Limit the recursion to a max of 5 times using the variable   /
+                    /  state.userData.info.refreshTokenRequestCount to do this.           /
+                    /--------------------------------------------------------------------*/
+                    await thunkAPI.dispatch(getUserActivitiesAsync(payload)).payload
                     return { err: 404 }
                 } 
                 throw new Error(`${serverResponse.status} ${serverResponse.statusText}`) 

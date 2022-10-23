@@ -71,6 +71,59 @@ class DatabaseManager {
             return { successful: false, response: null, error: err }  
         }
     }
+
+
+    async SelectAllUserActivities( Values ){
+        try{
+            const res = await this.DatabaseClient.query(
+               `SELECT
+                    a_data.activity_data_id as "activityId", a_data.amount, a_data.units, a_data.start_time as "startTime", a_data.duration, 
+                    a_data.end_time as "endTime", a_data.create_date as "createDate", a_detail.activity_name as "activityName",
+                    a_detail.short_description as "shortDesc",  a_detail.long_description as "longDesc", f_type.fitness_name as "fitnessName", 
+                    f_type.fitness_description as "fitnessDesc"
+                FROM 
+                    activity_data a_data JOIN activity_detail a_detail
+                        ON a_data.activity_detail_id = a_detail.activity_detail_id
+                    JOIN fitness_type f_type ON f_type.fitness_type_id = a_detail.fitness_type_id
+                WHERE
+                    a_data.user_id = (SELECT u.user_id FROM "users" u WHERE u.email = $1)`, 
+            Values)
+            return { successful: true, response: res.rows }    
+
+        } catch (err) {
+
+        }
+    }
+
+    /*
+amount, units, start_time, duration, end_time, create_date, modified_date, user_id, location_id, activity_detail_id
+1           2           3         4     5           6           7               8       9           __ 
+activity_detail_id, activity_name, short_description, long_description, create_date, modified_date, fitness_type_id
+__                      10              11                  12              13             14           
+
+    */
+    async InsertUserActivity( Values ){
+        try{
+
+            //TASK: MAKE THIS WORK AS A TRANSACTION!!!!!
+            const res = await this.DatabaseClient.query(
+               `
+                WITH return_relation AS (
+                    INSERT INTO activity_detail(activity_detail_id, activity_name, short_description, long_description, create_date, modified_date, fitness_type_id ) 
+                        VALUES ( DEFAULT, $8, $9, $10, DEFAULT, DEFAULT, ( SELECT fitness_type_id FROM fitness_type f WHERE f.fitness_name = $11)) RETURNING activity_detail_id
+                )
+                INSERT INTO activity_data(activity_data_id, amount, units, start_time, duration, end_time, create_date, modified_date, user_id, location_id, activity_detail_id)
+                    VALUES ( DEFAULT, $1, $2, $3, $4, $5, DEFAULT, DEFAULT, $6, $7, (SELECT activity_detail_id FROM return_relation))
+                RETURNING activity_data_id as "activityId", amount, units, start_time as "startTime", duration, end_time as "endTime", create_date as "createDate"
+                `, 
+            Values)
+            return { successful: true, response: res.rows }    
+
+        } catch (err) {
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }  
+        }
+    }
 }
 
 module.exports = new DatabaseManager()
