@@ -53,6 +53,7 @@ class DashboardActivities extends React.Component {
             startTime: this.state.start_time,
             endTime: this.state.end_time,
         }))
+        this.setState({ showActivityList: true })
     }
  
     handleInputChange = (event) => {
