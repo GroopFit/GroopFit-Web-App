@@ -39,7 +39,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+            return { successful: false, response: null, error: Query.error } 
         }
     }
 
@@ -48,7 +48,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -57,7 +57,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -66,7 +66,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -75,7 +75,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -84,7 +84,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -93,7 +93,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -102,7 +102,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -111,7 +111,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -120,7 +120,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -129,7 +129,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -138,7 +138,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -147,7 +147,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -156,7 +156,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -165,7 +165,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -174,7 +174,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -183,7 +183,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
@@ -192,7 +192,7 @@ class User{
         if (Query.successful) {
             return { successful: true}
         } else {
-           //return some sort of success 
+           return { successful: false, response: null, error: Query.error }  
         }
     }
 
