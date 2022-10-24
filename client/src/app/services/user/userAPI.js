@@ -69,8 +69,16 @@ export const pingpongAsyncNew = createAsyncThunk(
         
         axios.post(fetchRoute, payload).then((response) => {
             console.log(response.data);
-        }).catch(error => {
-            console.log(`Error: ${error.message}`);
-        });
+        }).catch(async error => {
+            if (error.response.status === 403) {
+                await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
+                console.log(store.getState().userData.info.refreshTokenRequestCount)
+
+                if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
+                    await thunkAPI.dispatch(pingpongAsync(payload)).payload;
+                }
+                return { err: 404 };
+            }
+        })
     }
 );
