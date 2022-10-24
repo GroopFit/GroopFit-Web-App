@@ -37,7 +37,7 @@ class User{
     setEmail(new_email){
         const Query = DatabaseManager.UpdateEmail([new_email, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -46,7 +46,7 @@ class User{
     setGivenName(new_name){
         const Query = DatabaseManager.UpdateGivenName([new_name, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -55,7 +55,7 @@ class User{
     setFamilyName(new_name){
         const Query = DatabaseManager.UpdateFamilyName([new_name, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -64,7 +64,7 @@ class User{
     setHeightValue(new_height){
         const Query = DatabaseManager.UpdateHeightValue([new_height, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -73,7 +73,7 @@ class User{
     setWeightValue(new_weight){
         const Query = DatabaseManager.UpdateWeightValue([new_weight, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -82,7 +82,7 @@ class User{
     setHeightUnits(new_height_units){
         const Query = DatabaseManager.UpdateHeightUnits([new_height_units, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -91,7 +91,7 @@ class User{
     setWeightUnits(new_weight_units){
         const Query = DatabaseManager.UpdateWeightUnits([new_weight_units, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -100,7 +100,7 @@ class User{
     setAgeGroup(new_age){
         const Query = DatabaseManager.UpdateAgeGroup([new_age, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -109,7 +109,7 @@ class User{
     setGender(new_gender){
         const Query = DatabaseManager.UpdateGender([new_gender, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -118,7 +118,7 @@ class User{
     setBirthdate(new_birthdate){
         const Query = DatabaseManager.UpdateBirthdate([new_birthdate, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -127,7 +127,7 @@ class User{
     setIsOnline(online){
         const Query = DatabaseManager.UpdateIsOnline([online, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -136,7 +136,7 @@ class User{
     setLastLogin(last_login){
         const Query = DatabaseManager.UpdateLastLogin([last_login, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -145,7 +145,7 @@ class User{
     setCreateDate(create_date){
         const Query = DatabaseManager.UpdatCreateDate([create_date, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -154,7 +154,7 @@ class User{
     setModifiedDate(modified_date){
         const Query = DatabaseManager.UpdateModifiedDate([modified_date, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -163,7 +163,7 @@ class User{
     setPaymentTierId(payment_tier_id){
         const Query = DatabaseManager.UpdatePaymentTierId([payment_tier_id, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -172,7 +172,7 @@ class User{
     setLocationId(location_id){
         const Query = DatabaseManager.UpdateLocationId([location_id, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -181,7 +181,7 @@ class User{
     setMilitaryDataId(military_data_id){
         const Query = DatabaseManager.UpdateMilitaryDataId([military_data_id, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
@@ -190,7 +190,7 @@ class User{
     setPictureUrl(picture_url){
         const Query = DatabaseManager.UpdatePictureUrl([picture_url, this.id]);
         if (Query.successful) {
-            //return some sort of success
+            return { successful: true}
         } else {
            //return some sort of success 
         }
