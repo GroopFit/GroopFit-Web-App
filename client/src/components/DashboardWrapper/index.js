@@ -8,13 +8,15 @@ import * as WeatherIcons from "react-icons/wi";
 import { AiOutlineGithub } from "react-icons/ai";
 
 import NavigationBar from "./NavigationBar"
-import UserIcon from "../pages/DashboardHome/UserIcon";
+// import UserIcon from "../pages/DashboardHome/UserIcon";
 
 import { getUserDataAsync } from '../../app/services/user/userAPI';
 import { getUserActivitiesAsync } from '../../app/services/fitness/fitnessAPI';
 
 import Logo from '../../img/temp-logo.png'
 import { CgMenu } from "react-icons/cg";
+import { Suspense, lazy } from 'react';
+const UserIcon = lazy(()=>import('../pages/DashboardHome/UserIcon'));
  
 
 const SidebarPageData = [
@@ -138,7 +140,9 @@ class DashboardWrapper extends React.Component {
                     <div className="dash-header-r-img flex center">
                       {/*         Link for Custom Lazy Loading Image Component Below          */}
                       {/* https://levelup.gitconnected.com/react-lazy-load-image-e6a5ca944f32 */}
-                      <UserIcon height="32px" border_radius="50%"/>
+                      <Suspense fallback="loading Icon">
+                        <UserIcon height="32px" border_radius="50%"/>
+                      </Suspense>
                       {/* Task:   Make this a custom component or have it render              */}
                       {/*        a default picture when it fails to load properly.            */}
                     </div>
