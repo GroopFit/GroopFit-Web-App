@@ -7,7 +7,6 @@ class User{
         const foundUser = Query.response[0]
         //check for success first
         if (Query.successful) {
-            //fill in fields here
             this.userId = foundUser["userId"]
             this.email = foundUser["email"]
             this.givenName = foundUser["givenName"] 
@@ -34,7 +33,6 @@ class User{
     }
       
         
-
     //setters
     setEmail(new_email){
         const Query = DatabaseManager.UpdateEmail([new_email, this.id]);
@@ -198,5 +196,6 @@ class User{
         }
     }
 
-
 }
+
+module.exports = User();
