@@ -6,6 +6,7 @@ class User{
         const Query = DatabaseManager.SelectUserByEmail([email]);
         const foundUser = Query.response[0]
         //check for success first
+        //probably need to check that all these fields exist first
         if (Query.successful) {
             this.userId = foundUser["userId"]
             this.email = foundUser["email"]
@@ -30,6 +31,7 @@ class User{
         }
         //else return error
         console.log("error getting user from DB")
+        //need to throw something here
     }
       
         
