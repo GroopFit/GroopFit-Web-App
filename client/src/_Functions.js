@@ -6,3 +6,11 @@
 getActivityColor = (activityName, activityColors) => {
     return activityColors.find(element => element.activity === activityName).color;
 }
+
+stringComparison = (str1, str2) => {
+    return (str1.toLowerCase === str2.toLowerCase);
+}
+
+capitalizeFirstLetter = (s) => {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
