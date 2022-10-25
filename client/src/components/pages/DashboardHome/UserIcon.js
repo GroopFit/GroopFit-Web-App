@@ -16,7 +16,7 @@ const UserIcon = (props) => {
     if (props.box_shadow != null) {
         style_str["box-shadow"] = props.box_shadow;
     }
-    const userData =  useSelector(state => state.userData);
+    const userData = useSelector(state => state.userData);
     return (
         <>
             <Suspense fallback={<p>loading icon</p>}>
