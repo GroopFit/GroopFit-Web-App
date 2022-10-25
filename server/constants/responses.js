@@ -1,16 +1,17 @@
-const Ok = 200;
-const Bad_request = 400;
-const Unauthorized = 401;
-const Forbidden = 403;
-const Not_found = 404;
-const Not_Allowed = 405;
-const Rate_limit = 429;
-const Internal_server_error = 500;
-const Bad_gateway = 502;
-const Unavailable = 503;
-const Timeout = 504;
-const HTTP_version_not_supported = 505;
+const OK = 200;
+const ERROR_RESPONSE_BAD_REQUEST = 400;
+const ERROR_RESPONSE_UNAUTHORIZED = 401;
+const ERROR_RESPONSE_FORBIDDEN = 403;
+const ERROR_RESPONSE_NOT_FOUND = 404;
+const ERROR_RESPONSE_NOT_ALLOWED= 405;
+const ERROR_RESPONSE_RATE_LIMIT = 429;
+const ERROR_RESPONSE_INTERNAL_SERVER_ERROR = 500;
+const ERROR_RESPONSE_BAD_GATEWAY = 502;
+const ERROR_RESPONSE_UNAVAILABLE= 503;
+const ERROR_RESPONSE_TIMEOUT = 504;
+const ERROR_RESPONSE_HTTP_VERSION_NOT_SUPPORTED = 505;
 
-export {Ok, Bad_request, Unauthorized, Forbidden, Not_found, Not_Allowed, Rate_limit, 
-    Internal_server_error, Bad_gateway, Unavailable, Timeout, HTTP_version_not_supported}
+export {OK, ERROR_RESPONSE_BAD_GATEWAY, ERROR_RESPONSE_BAD_REQUEST, ERROR_RESPONSE_FORBIDDEN, ERROR_RESPONSE_HTTP_VERSION_NOT_SUPPORTED
+, ERROR_RESPONSE_RATE_LIMIT, ERROR_RESPONSE_NOT_ALLOWED, ERROR_RESPONSE_NOT_FOUND, ERROR_RESPONSE_INTERNAL_SERVER_ERROR
+,ERROR_RESPONSE_UNAVAILABLE, ERROR_RESPONSE_TIMEOUT, ERROR_RESPONSE_UNAUTHORIZED}
 
