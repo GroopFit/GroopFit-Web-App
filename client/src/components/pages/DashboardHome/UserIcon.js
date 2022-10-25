@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Suspense } from 'react';
 
 const UserIcon = (props) => {
     var style_str = {};
@@ -17,10 +18,11 @@ const UserIcon = (props) => {
     }
     const userData =  useSelector(state => state.userData);
     return (
-    <>
-        <img alt={userData.info.userPicture} src={userData.info.userPicture} 
-        style={style_str}/>
-    </>
+        <>
+            <Suspense fallback={<p>loading icon</p>}>
+                <img alt={"image"} src={userData.info.userPicture} style={style_str} loading="lazy"/>
+            </Suspense>
+        </>
     )
 }
 
