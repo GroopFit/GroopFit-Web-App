@@ -428,6 +428,7 @@ code {
   position: absolute;
   height: 40px;
   width: 40px;
+  color: #ffffff;
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
   border-radius: 10px;
   left: -15px;
@@ -447,7 +448,7 @@ code {
 .dashboard-horizontal-box-item-content-rest {
   display: flex;
   flex: 0 1;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-flow: column;
   margin-top: 15px; /**Might need to be 20*/
   padding: 0px 10px 5px 10px;
@@ -510,6 +511,8 @@ code {
   flex-flow: row;
   flex: 1 0;
   justify-content: space-around;
+  flex: 10;
+  justify-content: space-between; 
   font-size: 12.5px;
   color: #fff;
 }
@@ -525,9 +528,17 @@ code {
   color: #ec5800;
 }
 
+.dashboard-horizontal-box-item-icon:hover {
+  cursor: pointer;
+  color: #195bce;
+  
+
+}
+
 .dashboard-horizontal-box-item-accent {
   font-size: 12px;
   font-weight: bold;
+  width: 45px;
 }
 
 .dashboard-horizontal-add-activity {
