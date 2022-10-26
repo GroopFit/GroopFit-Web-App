@@ -17,8 +17,8 @@ export const userSlice = createSlice({
             userId: null,
             email: null,
             fullName: null,
+            userPicture: null
         },
-        userPicture: null,
         
     },
     reducers:{ /* To be filled in later if needed*/ },
@@ -28,6 +28,8 @@ export const userSlice = createSlice({
         /*-------------------------------------------------------------------------*/
         [authAPI.loginUserAsync.fulfilled]: (state, action) => {
             console.log("First Access Token Is: ", action.payload.accessToken)
+            console.log("We Have Logged IN: ", action.payload)
+
             state.auth.accessToken = action.payload.accessToken
             state.info.userId = action.payload.userId
         },
