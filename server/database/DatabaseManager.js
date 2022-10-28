@@ -30,6 +30,12 @@ class DatabaseManager {
         }).catch(err => console.error('Database Connection Error', err.stack))
     }
 
+    /**
+     * To select all fields about a User from the DB by searching with their email
+     * @param {Array} Values
+     *  @param {string} Values[0] = email you are using to search
+     * @returns {Object} either a success object with the User or a failure object with the error.
+     */
     async SelectUserByEmail( Values ){
         try {
             const res = await this.DatabaseClient.query(`Select * FROM "users" WHERE email = $1`, Values)
@@ -40,6 +46,12 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To select all fields about a User from the DB by searching with their Refresh Token
+     * @param {Array} Values
+     *  @param {string} Values[0] = Refresh Token you are using to search
+     * @returns {Object} either a success object with the User or a failure object with the error.
+     */
     async SelectUserByRefreshToken( Values ){
         try {
             const res = await this.DatabaseClient.query(`Select * FROM "users" WHERE refresh_token = $1`, Values)
@@ -50,6 +62,14 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users refresh token and picture URL by searching by email
+     * @param {Array} Values
+     *  @param {string} Values[0] = Email you are using to find the User
+     *  @param {string} Values[1] = New refresh token you are looking to set
+     *  @param {string} Values[2] = New picture url you are looking to set
+     * @returns {Object} either a success object with the response or a failure object with the error.
+     */
     async UpdateAuthenticationValuesByEmail( Values ){
         try {
             const res = await this.DatabaseClient.query(`UPDATE "users" SET refresh_token = $2, picture_url = $3 WHERE email = $1 RETURNING *; `, Values)
@@ -60,6 +80,14 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To add someone to the mailing list 
+     * @param {Array} Values
+     *  @param {string} Values[0] = Email you are adding to the list
+     *  @param {string} Values[1] = First name of person being added
+     *  @param {string} Values[2] = Last name of person being added
+     * @returns {Object} either a success object with the response or a failure object with the error.
+     */
     async InsertIntoMailingList( Values ){
         try {
             const res = await this.DatabaseClient.query(
