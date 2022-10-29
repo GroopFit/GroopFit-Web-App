@@ -1,6 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 /*MAYBE THE ABOVE FOR THE HOMEAPAGE */
+:root {
+  --primary-bg-color: rgb(0, 0, 0);
+  --secondary-bg-color: rgb(255, 255, 255);
+  --tertiary-bg-color: rgb(112, 110, 110); 
+  
+  --small-text-color: rgb(151, 146, 146);
+  --medium-text-color: #FFF;
+  --large-text-color: #FFF;
+
+  --title-color: #FFF;
+
+  --navbar-width: 40px;
+  --header-height: 80px; 
+  --footer-height: 80px;
+  
+  /* natural color gradients */
+  --white-gradient: linear-gradient(rgb(255, 255, 255), rgb(225, 220, 220));
+  --red-gradient: linear-gradient(rgb(255, 0, 0), rgb(191, 25, 25));
+  --black-gradient: linear-gradient(rgb(0, 0, 0), rgb(24, 24, 24));
+  --green-gradient: linear-gradient(rgb(0, 255, 30), rgb(29, 149, 39));
+  --yellow-gradient: linear-gradient(rgb(208, 255, 0), rgb(184, 198, 27));
+  --blue-gradient: linear-gradient(rgb(4, 0, 255), rgb(0, 115, 255));
+
+  /* subtle color gradients */
+  --rare-steak-image: linear-gradient(to right top, #af0917, #bc161b, #c9201f, #d72924, #e43228);
+  --dusk-sky-image: linear-gradient(to right bottom, #0963af, #0860a9, #075ca4, #06599e, #055699);
+  --new-sky-image: linear-gradient(to right bottom, #ffffff, #fcfafc, #f9f6f8, #f8f1f3, #f6ecec);
+  --old-campfire-image: linear-gradient(to right bottom, #777777, #706d71, #6b6368, #67595d, #635050);
+
+  --standard-font: #FFF;
+  --secondary-font: #FFF;
+  --board-card-margin: #FFF;
+  --board-grid-margin: #FFF;
+  --board-grid-patting: #FFF;
+
+  --primary-icon-color: #FFF;
+  --secondary-icon-color: #FFF;
+  --tertiary-icon-color: #FFF;
+
+  --online-color: rgb(0, 255, 115);
+  --offline-color: rgb(255, 12, 12);
+  --hover-over-color: rgb(198, 26, 26);
+
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -510,8 +555,6 @@ code {
   display: flex;
   flex-flow: row;
   flex: 1 0;
-  justify-content: space-around;
-  flex: 10;
   justify-content: space-between; 
   font-size: 12.5px;
   color: #fff;
@@ -530,7 +573,6 @@ code {
 
 .dashboard-horizontal-box-item-icon:hover {
   cursor: pointer;
-  color: #195bce;
   
 
 }
