@@ -33,7 +33,7 @@ class DashboardCard extends React.Component {
                         { this.props.activity === "running" ? <FA.FaRunning onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'} /> : <></> }
                         { this.props.activity === "swimming" ? <FA.FaSwimmer onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'} /> : <></> }
                         { this.props.activity === "biking" ? <FA.FaBiking onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'}/> : <></> }
-                        { this.props.activity === "walking" ? <FA.FaWalking onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'}/> : <></> }
+                        { this.props.activity === "walking" ? <FA.FaBiking onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'}/> : <></> }
                     </div>
                     <div className="dashboard-horizontal-box-item-content-top" >
                         <div className="dashboard-horizontal-box-item-left">
