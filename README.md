@@ -49,7 +49,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-GroopFit is a free, open source application that allows you to track your workouts as a team, or Groop. Every workout is a growth opportunity, and what better way to grow than with your friends or coworkers. 
+GroopFit is a free, open source application that allows you to track your workouts individually or as a Groop. Every workout is a growth opportunity, and what better way to grow than with your friends or coworkers. 
 
 Enjoy all of these exercise features:
 * Personal dashboard with goals and progress towards those goals
