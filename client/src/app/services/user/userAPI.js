@@ -61,6 +61,8 @@ export const getUserDataAsync = createAsyncThunk(
 //     }  
 // );
 
+let retries = 0;
+
 export const pingpongAsync = createAsyncThunk(
     'user/pingpong/pingpongAsync',
     async (payload, thunkAPI) => {
@@ -77,17 +79,21 @@ export const pingpongAsync = createAsyncThunk(
         axios.post(fetchRoute, payload, config)
         .then((response) => {
             console.log(response.data);
+            return response.data;
         })
         .catch(async error => {
             if (error.response.status === 403) {
                 await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
-                console.log(store.getState().userData.info.refreshTokenRequestCount)
+                console.log("error " + error);
 
-                if (0 <= store.getState().userData.info.refreshTokenRequestCount) {
+                // limits recursion to 5 retries
+                if (retries <= store.getState().userData.info.refreshTokenRequestCount) {
+                    retries += 1;
                     await thunkAPI.dispatch(pingpongAsync(payload)).payload;
                 }
                 return { err: 404 };
             }
+            throw new Error(error); 
         })
     }
 );
