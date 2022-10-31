@@ -124,8 +124,8 @@ GroopFit development follows the Agile ideology using Scrum. The list of sprints
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. To better maintain the main branch, please create an individual branch for your contributions and create pull requests to merge into the main branch.
 
 1. Branch the Project
-3. Commit your Changes (`git commit -a -m 'Your Feature'`)
-4. Push to YOUR Branch (`git push origin feature/AmazingFeature`)
+3. Commit your Changes (`git commit -a -m 'Your Feature's commit message'`)
+4. Push to YOUR Branch (`git push origin branch_you_commit_to`)
 5. Open a Pull Request
 
 <!-- LICENSE -->
@@ -155,7 +155,7 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/badge/all_contributors-8-red.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/badge/all_contributors-9-red.svg?style=flat-square
 [other-contributors-shield]: https://img.shields.io/badge/contributors-0-red.svg?style=flat-square
 [contributors-url]: https://github.com/GroopFit/GroopFit-Web-App/graphs/contributors
 [license-shield]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
