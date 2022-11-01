@@ -40,7 +40,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Resources</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ol>
 </details>
 
