@@ -73,7 +73,13 @@ class DatabaseManager {
     }
 
     //db functions for updating DB fields
-    
+     /**
+     * To update a Users email
+     * @param {Array} Values
+     *  @param {string} Values[0] = New email you are using to set
+     *  @param {integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateEmail( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -86,6 +92,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users first name
+     * @param {Array} Values
+     *  @param {string} Values[0] = New name you are using to set
+     *  @param {integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateGivenName( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -98,6 +111,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users last name
+     * @param {Array} Values
+     *  @param {string} Values[0] = New name you are using to set
+     *  @param {integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateFamilyName( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -110,6 +130,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users height
+     * @param {Array} Values
+     *  @param {Float} Values[0] = New height you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateHeightValue( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -122,6 +149,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users weight
+     * @param {Array} Values
+     *  @param {Float} Values[0] = New weight you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateWeightValue( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -134,6 +168,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users height units
+     * @param {Array} Values
+     *  @param {String} Values[0] = New height unit you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateHeightUnits( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -146,6 +187,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users weight units
+     * @param {Array} Values
+     *  @param {String} Values[0] = New weight unit you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateWeightUnits( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -158,6 +206,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users age
+     * @param {Array} Values
+     *  @param {Integer} Values[0] = New age you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateAgeGroup( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -170,6 +225,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users gender
+     * @param {Array} Values
+     *  @param {Integer} Values[0] = New gender you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateGender( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -182,6 +244,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users Birthdate
+     * @param {Array} Values
+     *  @param {String} Values[0] = New birthdate you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateBirthdate( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -194,6 +263,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users online status
+     * @param {Array} Values
+     *  @param {String} Values[0] = New status you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateIsOnline( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -206,6 +282,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users last login time
+     * @param {Array} Values
+     *  @param {String} Values[0] = New time are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateLastLogin( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -218,7 +301,13 @@ class DatabaseManager {
         }
     }
 
-    async UpdatCreateDate( Values ) {
+    /**
+     * To update a Users created date
+     *  @param {String} Values[0] = New date you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
+    async UpdateCreateDate( Values ) {
         try {
             const res = await this.DatabaseClient.query(
                 `UPDATE "users" set createDate = $1 where id = $2;`, Values
@@ -230,6 +319,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users modified date
+     * @param {Array} Values
+     *  @param {String} Values[0] = New date you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateModifiedDate( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -242,6 +338,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users payment tier id
+     * @param {Array} Values
+     *  @param {Integer} Values[0] = New tier id you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdatePaymentTierId( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -254,6 +357,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users location id
+     * @param {Array} Values
+     *  @param {Integer} Values[0] = New location id you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateLocationId( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -266,6 +376,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users military data id
+     * @param {Array} Values
+     *  @param {Integer} Values[0] = New military id you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdateMilitaryDataId( Values ) {
         try {
             const res = await this.DatabaseClient.query(
@@ -278,6 +395,13 @@ class DatabaseManager {
         }
     }
 
+    /**
+     * To update a Users picture url
+     * @param {Array} Values
+     *  @param {String} Values[0] = New url you are using to set
+     *  @param {Integer} Values[1] = id of User you are looking for
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     async UpdatePictureUrl( Values ) {
         try {
             const res = await this.DatabaseClient.query(
