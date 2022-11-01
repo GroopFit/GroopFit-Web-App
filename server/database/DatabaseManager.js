@@ -100,7 +100,12 @@ class DatabaseManager {
         }
     }
 
-
+    /**
+     * To select all activities associated with a given user 
+     * @param {Array} Values
+     *  @param {string} Values[0] = email of user you are looking to select
+     * @returns {Object} either a success object with the all activities associated with that user or a failure object with the error.
+     */
     async SelectAllUserActivities( Values ){
         try{
             const res = await this.DatabaseClient.query(
@@ -119,7 +124,7 @@ class DatabaseManager {
             return { successful: true, response: res.rows }    
 
         } catch (err) {
-
+            return { successful: false, response: null, error: err }
         }
     }
 
@@ -130,6 +135,11 @@ activity_detail_id, activity_name, short_description, long_description, create_d
 __                      10              11                  12              13             14           
 
     */
+   /**
+     * To add an Activty for a given user 
+     * @param {Array} Values, associated indeces seen above
+     * @returns {Object} either a success object with the Activity added or a failure object with the error.
+     */
     async InsertUserActivity( Values ){
         try{
 
