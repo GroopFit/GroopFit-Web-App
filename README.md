@@ -115,7 +115,7 @@ _The following steps allow a new developer to install the main repository and be
 
 <!-- ROADMAP -->
 ## Roadmap
-GroopFit development follows the Agile ideology using Scrum. The list of sprints, tasks completed, and backlog tasks to be done are on our [Jira page](https://groopfit.atlassian.net/jira/software/projects/GROOP/boards/1/roadmap).
+GroopFit development follows the Agile ideology using Scrum. The list of sprints, tasks completed, and backlog tasks to be done are on our Jira page, accessible only to developers. 
 
 
 <!-- CONTRIBUTING -->
