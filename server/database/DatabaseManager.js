@@ -124,6 +124,20 @@ __                      10              11                  12              13  
             return { successful: false, response: null, error: err }  
         }
     }
+
+    //db functions for activities
+    async deleteActivity( Values ) {
+        try {
+            const res = await this.DatabaseClient.query(``
+                //not entirely sure the best way to write this query
+            ,Values)
+            return { successful: true, response: res.rows }
+        }
+        catch (err){
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }  
+        }
+    }
 }
 
 module.exports = new DatabaseManager()
