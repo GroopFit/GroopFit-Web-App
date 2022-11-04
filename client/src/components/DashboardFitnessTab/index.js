@@ -17,7 +17,7 @@ class DashboardCard extends React.Component {
 
 
     componentDidMount(){
-        console.log(this.props)
+        console.log("----------->",this.props.activityData.activityName)
 
     } 
 
@@ -29,10 +29,11 @@ class DashboardCard extends React.Component {
     render() {
         return  <div className="dashboard-horizontal-box-item" style={ this.state.dropdownToggle ? {minHeight: 'auto'} : {} } >
                     <div className={`dashboard-horizontal-box-item-icon  flex center icon-bg-${this.props.iconColor}`}>
-                        { this.props.activityData.fitnessName === "running" ? <FA.FaRunning color={'#fff'} fontSize={'1.35rem'} /> : <></> }
-                        { this.props.activityData.fitnessName === "swimming" ? <FA.FaSwimmer color={'#fff'} fontSize={'1.35rem'} /> : <></> }
-                        { this.props.activityData.fitnessName === "biking" ? <FA.FaBiking color={'#fff'} fontSize={'1.35rem'} /> : <></> }
-                        { this.props.activityData.fitnessName === "walking" ? <FA.FaBiking color={'#fff'} fontSize={'1.35rem'} /> : <></> }
+                    
+                        { this.props.activityData.fitnessName === "running" ? <FA.FaRunning onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'} /> : <></> }
+                        { this.props.activityData.fitnessName === "swimming" ? <FA.FaSwimmer onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'} /> : <></> }
+                        { this.props.activityData.fitnessName === "biking" ? <FA.FaBiking onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'}/> : <></> }
+                        { this.props.activityData.fitnessName === "walking" ? <FA.FaBiking onClick = {this.dropDownToggle} style={{cursor: 'pointer'}} fontSize={'1.35rem'}/> : <></> }
                     </div>
                     <div className="dashboard-horizontal-box-item-content-top" >
                         <div className="dashboard-horizontal-box-item-left">

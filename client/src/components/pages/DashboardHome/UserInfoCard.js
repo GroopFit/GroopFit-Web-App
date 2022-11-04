@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import ReactApexChart from 'react-apexcharts'
-// import UserIcon from "./UserIcon";
-import { Suspense, lazy } from 'react';
-const UserIcon = lazy(()=>import('./UserIcon'));
+import UserIcon from "./UserIcon";
 
 class UserInfoCard extends React.Component {
 
@@ -22,9 +20,7 @@ class UserInfoCard extends React.Component {
         return  (
             <div className="new-dashboard-card overview-user-info-dashboard-card flex flow-col" >
                 <div className="overview-user-info-card-header">
-                    <Suspense fallback={<p>loading Icon</p>}>
-                        <UserIcon width="75px" height="75px" border_radius="10px" box_shadow="rgb(0 0 0) 0px 0px 8px 1px"/>
-                    </Suspense>
+                    <UserIcon width="75px" height="75px" border_radius="10px" box_shadow="rgb(0 0 0) 0px 0px 8px 1px"/>
                     <div className="overview-user-info-card-header-text" >
                         <b>{ this.props.fullName }</b>
                         <p>GroopFit Admin</p>
