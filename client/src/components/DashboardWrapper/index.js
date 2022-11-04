@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './dash.css';
 import * as IoIcons from 'react-icons/io';
 import * as IoIcons5 from 'react-icons/io5';
+import * as FA from 'react-icons/fa';
 
 import * as WeatherIcons from "react-icons/wi";
 import { AiOutlineGithub } from "react-icons/ai";
@@ -125,7 +126,7 @@ class DashboardWrapper extends React.Component {
                       <CgMenu color={'#888888'} onClick={() => {this.toggleNavbarWidth()}}  fontSize={'1.75rem'} background={'none'} style={{ cursor: 'pointer' }}/>
                     </div>
                     <div className="dash-header-logo flex center">
-                      GroopFit
+                      GroopFit <FA.FaRunning color={'#888'} fontSize={'2rem'} />
                     </div>
                     <div className="dash-header-route flex center">
                       <pre>{ this.createRouteString() }</pre>
