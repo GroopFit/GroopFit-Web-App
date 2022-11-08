@@ -2,9 +2,7 @@ const DatabaseManager = require('../database/DatabaseManager')
 
 class User{
     //need to pass in email so we can query for the right User
-    constructor(email){
-        const Query = DatabaseManager.SelectUserByEmail([email]);
-        const foundUser = Query.response[0]
+     constructor(foundUser){
         //check for success first
         //probably need to check that all these fields exist first
         if (Query.successful) {
@@ -31,7 +29,14 @@ class User{
         }
         //else return error
         console.log("error getting user from DB")
-        //need to throw something here
+        return { successful: false, response: "User not found" } 
+    }
+
+    static async fetchUser(email) {
+        const Query = await DatabaseManager.SelectUserByEmail([email]);
+        const foundUser = Query.response[0];
+        // Invoke the private constructor...
+        return new Person(foundUser);
     }
       
         
@@ -291,4 +296,4 @@ class User{
 
 }
 
-module.exports = User();
+module.exports = User;

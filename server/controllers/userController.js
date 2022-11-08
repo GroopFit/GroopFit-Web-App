@@ -1,13 +1,13 @@
+const User = require('../classes/User')
 const DatabaseManager = require('../database/DatabaseManager')
 
 const getAllUsers = (req, res) => { }
 
 const getUser = async (req, res) => {
       let reqUserEmail = req.user
-      const Query = await DatabaseManager.SelectUserByEmail([reqUserEmail]);
-  
-      /* Mock of a DB Query Change later */
-      const foundUser = Query.response[0]
+      
+      //create User object with email
+      const foundUser = new User(reqUserEmail)
       console.log(foundUser)
   
       if( Query.successful ){
