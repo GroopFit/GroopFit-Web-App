@@ -138,8 +138,7 @@ Distributed under Apache License 2.0. See `LICENSE.txt` for more information.
 <!-- Resources -->
 ## Resources
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
+Useful Resources:
 * [Choose an Open Source License](https://choosealicense.com)
 * [React JS Full Course for Beginners](https://www.youtube.com/watch?v=RVFAyFWO4go&t=39s&ab_channel=DaveGray)
 * [Node.js Full Course for Beginners](https://www.youtube.com/watch?v=f2EqECiTBL8&start=11729&ab_channel=DaveGray)
