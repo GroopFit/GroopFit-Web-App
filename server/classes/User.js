@@ -3,6 +3,10 @@ const DatabaseManager = require('../database/DatabaseManager')
 class User{
     //need to pass in email so we can query for the right User
      constructor(foundUser, Query){
+        //hold a list of Activities, this user has done
+        var activities = [];
+        //hold list of groups this user is a part of
+        var groops = [];
         //check for success first
         //probably need to check that all these fields exist first
         if (Query.successful == true) {
@@ -36,7 +40,7 @@ class User{
 
     static async fetchUser(email) {
         const Query = await DatabaseManager.SelectUserByEmail([email]);
-        console.log("queryyyy", Query)
+        console.log("Query:", Query)
         const foundUser = Query.response[0];
         // Invoke the private constructor...
         return new User(foundUser, Query);
