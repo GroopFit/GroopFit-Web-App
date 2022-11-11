@@ -79,7 +79,8 @@ app.use('/activity', require('./routes/api/activity'));
 //A TEST FUNCTION ABOUT TO BE READY TO GET RID OF THIS
 app.post('/pingpong', async function (req, res) {
     console.log("We have recieved: ", req.body.data)
-    res.send({ data: "pong" }) 
+    res.send({ data: "pong" })  
+
 });
 
 //custom Error Handler for the App

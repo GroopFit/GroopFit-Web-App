@@ -4,6 +4,9 @@ import * as authAPI from './authAPI'
 import axios from 'axios';
 import React from "react";
 
+import reqInterceptor from '../../middleware/reqInterceptor';
+import respInterceptor from '../../middleware/reqInterceptor';
+
 export const getUserDataAsync = createAsyncThunk(
     'user/getData/getUserDataASync',
     async (payload) => {
