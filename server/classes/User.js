@@ -8,7 +8,6 @@ class User{
         //hold list of groups this user is a part of
         var groops = [];
         //check for success first
-        //probably need to check that all these fields exist first
         if (Query.successful == true) {
             this.userId = foundUser["user_id"]
             this.email = foundUser["email"]
