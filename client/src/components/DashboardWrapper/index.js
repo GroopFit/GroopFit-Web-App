@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import './dash.css';
 import * as IoIcons from 'react-icons/io';
 import * as IoIcons5 from 'react-icons/io5';
+import * as FA from 'react-icons/fa';
 
 import * as WeatherIcons from "react-icons/wi";
 import { AiOutlineGithub } from "react-icons/ai";
 
 import NavigationBar from "./NavigationBar"
+import UserIcon from "../pages/DashboardHome/UserIcon";
 
 import { getUserDataAsync } from '../../app/services/user/userAPI';
+import { getUserActivitiesAsync } from '../../app/services/fitness/fitnessAPI';
 
 import Logo from '../../img/temp-logo.png'
 import { CgMenu } from "react-icons/cg";
@@ -75,6 +78,10 @@ class DashboardWrapper extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getUserDataAsync())
+    if( !this.props.fitnessData.allActvities ){
+      console.log("BOOOOOOOOOOM")
+      this.props.dispatch(getUserActivitiesAsync())
+    }
     window.addEventListener('resize', this.updateContentDimensions);
   }
 
@@ -119,7 +126,7 @@ class DashboardWrapper extends React.Component {
                       <CgMenu color={'#888888'} onClick={() => {this.toggleNavbarWidth()}}  fontSize={'1.75rem'} background={'none'} style={{ cursor: 'pointer' }}/>
                     </div>
                     <div className="dash-header-logo flex center">
-                      GroopFit
+                      GroopFit <FA.FaRunning color={'#888'} fontSize={'2rem'} />
                     </div>
                     <div className="dash-header-route flex center">
                       <pre>{ this.createRouteString() }</pre>
@@ -132,7 +139,7 @@ class DashboardWrapper extends React.Component {
                     <div className="dash-header-r-img flex center">
                       {/*         Link for Custom Lazy Loading Image Component Below          */}
                       {/* https://levelup.gitconnected.com/react-lazy-load-image-e6a5ca944f32 */}
-                      <img alt="" src={ this.props.userData.info.userPicture} />
+                      <UserIcon height="32px" border_radius="50%"/>
                       {/* Task:   Make this a custom component or have it render              */}
                       {/*        a default picture when it fails to load properly.            */}
                     </div>
@@ -155,6 +162,7 @@ class DashboardWrapper extends React.Component {
 
 const MapStateToProps = (state) => ({ 
   userData: state.userData,
+  fitnessData: state.fitnessData,
   accessToken: state.userData.authaccessToken
 });
 export default connect(MapStateToProps)(DashboardWrapper)

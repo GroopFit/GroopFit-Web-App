@@ -40,9 +40,11 @@ class User{
 
     static async fetchUser(email) {
         const Query = await DatabaseManager.SelectUserByEmail([email]);
+        //const Query = { successful: false, response: null, error: "no user" }  
         console.log("Query:", Query)
-        const foundUser = Query.response[0];
-        // Invoke the private constructor...
+        //if no rows returned from query, set founduser = null to avoid key error
+        const foundUser = Query.response == null ? null:Query.response[0];
+        // Invoke the private constructor
         return new User(foundUser, Query);
     }
       

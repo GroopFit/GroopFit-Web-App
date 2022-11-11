@@ -13,6 +13,7 @@ Activty is in the format:
     endTime: Timestamp( Date + Time ) Representing When activity Ended
     duration: Integer Representing Seconds
     userID: Integer Unique per User
+    
     location: {
         ...
     }
