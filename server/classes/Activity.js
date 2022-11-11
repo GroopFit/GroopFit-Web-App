@@ -23,7 +23,34 @@ class Activity{
     }
 
     //functions to update activity
-    
+    /**
+     * To set a new email for this User. 
+     * @param {Object} keys are the fields, values are the actual values. this only contains fields that will be updated
+     * @returns {Object} either a success object or a failure object with the error.
+     */
+     updateActivity(values){
+        all_fields = [activity_data_id, amount, units, start_time, duration, end_time,
+            user_id, activity_detail_id, location_id, activity_name, short_description, long_description,
+            fitness_type_id, fitness_name, fitness_description]
+        //create new array with all required values for the activity class
+        var new_values = []
+        for (var field in all_fields) {
+            if (values.field) {
+                new_values.append(values.field)
+            }
+            else {
+                new_values.append(this.field)
+            }
+        }
+
+
+        const Query = DatabaseManager.updateActivity(new_values);
+        if (Query.successful) {
+            return { successful: true}
+        } else {
+            return { successful: false, response: null, error: Query.error } 
+        }
+    }
     
     //delete activity
     delete(){
