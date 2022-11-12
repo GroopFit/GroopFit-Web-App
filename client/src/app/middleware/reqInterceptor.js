@@ -8,11 +8,22 @@ const reqInterceptor = axios.interceptors.request.use(
     // 2xx Response
     successfulReq => successfulReq,
     // 403 Response
-    handleReqErr
-  );
+    (err) => {
+      const { config, message } = err;
 
-function handleReqErr(err) {
-    return Promise.reject(err);
-}
+      if (!config || !config.retryCt) {
+          return Promise.reject(err);
+      }
+
+      config.retryCt -= 1;
+      const retryReq = new Promise((resolve) => {
+          setTimeout(() => {
+              console.log("retrying post req", config.url);
+              resolve();
+          }, config.retryTimeout || 1000);
+      });
+      return retryReq.then(() => axios(config));
+  }
+);
 
 export default reqInterceptor;

@@ -67,6 +67,9 @@ export const getUserDataAsync = createAsyncThunk(
 export const pingpongAsync = createAsyncThunk(
     'user/pingpong/pingpongAsync',
     async (payload, thunkAPI) => {
+        payload['retryCt'] = 5;
+        payload['retryTimeout'] = 1000;
+
         console.log("Starting to send data: ", payload)
         let fetchRoute = `http://localhost:8000/pingpong`;
 
