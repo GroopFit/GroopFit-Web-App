@@ -19,7 +19,7 @@ const PORT =  process.env.PORT ? process.env.PORT : 8000;
 //Explains the Difference between Controllers and Services
 //https://dev.to/edwinwong90/tips-to-create-a-constants-file-in-javascript-cnm
 //CONSTANTS
- 
+  
 //REMOVE LATER SINCE WE DONT NEED IT IN THIS FILE
 const DatabaseManager = require('./database/DatabaseManager')
 
