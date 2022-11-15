@@ -138,6 +138,17 @@ __                      10              11                  12              13  
             return { successful: false, response: null, error: err }  
         }
     }
+
+    async updateActivity( Values ) {
+        try {
+            //query that updates every field in the activity
+            //prolly need sheldon to write this, still not really sure how the db is set up for activities
+        }
+        catch (err){
+            console.error('Error with Query', err)
+            return { successful: false, response: null, error: err }  
+        }
+    }
 }
 
 module.exports = new DatabaseManager()

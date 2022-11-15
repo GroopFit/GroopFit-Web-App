@@ -22,9 +22,9 @@ class Activity{
         this.fitness_description = fitness_description
     }
 
-    //functions to update activity
     /**
-     * To set a new email for this User. 
+     * To update 1 or more fields for an activity. 
+     * for every field that is going to be updated there needs to be a key and value in the input object
      * @param {Object} keys are the fields, values are the actual values. this only contains fields that will be updated
      * @returns {Object} either a success object or a failure object with the error.
      */
@@ -32,7 +32,7 @@ class Activity{
         all_fields = [activity_data_id, amount, units, start_time, duration, end_time,
             user_id, activity_detail_id, location_id, activity_name, short_description, long_description,
             fitness_type_id, fitness_name, fitness_description]
-        //create new array with all required values for the activity class
+        //create new array with all required values for an activity
         var new_values = []
         for (var field in all_fields) {
             if (values.field) {
@@ -43,7 +43,6 @@ class Activity{
             }
         }
 
-
         const Query = DatabaseManager.updateActivity(new_values);
         if (Query.successful) {
             return { successful: true}
@@ -52,10 +51,18 @@ class Activity{
         }
     }
     
-    //delete activity
+    /**
+     * To delete an activity and remove it from a user. 
+     * @returns {Object} either a success object or a failure object with the error.
+     */
     delete(){
         //use self.id to delete this activity from the db
         //also update user to remove this activity
-
+        const Query = DatabaseManager.deleteActivity(self.activity_data_id);
+        if (Query.successful) {
+            return { successful: true}
+        } else {
+            return { successful: false, response: null, error: Query.error } 
+        }
     }
 }
