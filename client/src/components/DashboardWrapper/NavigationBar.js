@@ -33,6 +33,12 @@ const SidebarPageData = [
     icon:  <FA.FaRunning />,
     cName: 'nav-text'
   },
+/*  {
+    title: 'Activities 2',
+    path: '/dashboard/activities2',
+    icon:  <FA.FaRunning />,
+    cName: 'nav-text'
+  },*/
   {
     title: 'My Groops',
     path: '/dashboard/groups',

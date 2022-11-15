@@ -1,6 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 /*MAYBE THE ABOVE FOR THE HOMEAPAGE */
+:root {
+  --primary-bg-color: rgb(0, 0, 0);
+  --secondary-bg-color: rgb(255, 255, 255);
+  --tertiary-bg-color: rgb(112, 110, 110); 
+  
+  --small-text-color: rgb(151, 146, 146);
+  --medium-text-color: #FFF;
+  --large-text-color: #FFF;
+
+  --title-color: #FFF;
+
+  --navbar-width: 40px;
+  --header-height: 80px; 
+  --footer-height: 80px;
+  
+  /* natural color gradients */
+  --white-gradient: linear-gradient(rgb(255, 255, 255), rgb(225, 220, 220));
+  --red-gradient: linear-gradient(rgb(255, 0, 0), rgb(191, 25, 25));
+  --black-gradient: linear-gradient(rgb(0, 0, 0), rgb(24, 24, 24));
+  --green-gradient: linear-gradient(rgb(0, 255, 30), rgb(29, 149, 39));
+  --yellow-gradient: linear-gradient(rgb(208, 255, 0), rgb(184, 198, 27));
+  --blue-gradient: linear-gradient(rgb(4, 0, 255), rgb(0, 115, 255));
+
+  /* subtle color gradients */
+  --rare-steak-image: linear-gradient(to right top, #af0917, #bc161b, #c9201f, #d72924, #e43228);
+  --dusk-sky-image: linear-gradient(to right bottom, #0963af, #0860a9, #075ca4, #06599e, #055699);
+  --new-sky-image: linear-gradient(to right bottom, #ffffff, #fcfafc, #f9f6f8, #f8f1f3, #f6ecec);
+  --old-campfire-image: linear-gradient(to right bottom, #777777, #706d71, #6b6368, #67595d, #635050);
+
+  --standard-font: #FFF;
+  --secondary-font: #FFF;
+  --board-card-margin: #FFF;
+  --board-grid-margin: #FFF;
+  --board-grid-patting: #FFF;
+
+  --primary-icon-color: #FFF;
+  --secondary-icon-color: #FFF;
+  --tertiary-icon-color: #FFF;
+
+  --online-color: rgb(0, 255, 115);
+  --offline-color: rgb(255, 12, 12);
+  --hover-over-color: rgb(198, 26, 26);
+
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -428,6 +473,7 @@ code {
   position: absolute;
   height: 40px;
   width: 40px;
+  color: #ffffff;
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
   border-radius: 10px;
   left: -15px;
@@ -447,7 +493,7 @@ code {
 .dashboard-horizontal-box-item-content-rest {
   display: flex;
   flex: 0 1;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-flow: column;
   margin-top: 15px; /**Might need to be 20*/
   padding: 0px 10px 5px 10px;
@@ -510,6 +556,8 @@ code {
   flex-flow: row;
   flex: 1 0;
   justify-content: space-around;
+  flex: 10;
+  justify-content: space-between; 
   font-size: 12.5px;
   color: #fff;
 }
@@ -525,9 +573,17 @@ code {
   color: #ec5800;
 }
 
+.dashboard-horizontal-box-item-icon:hover {
+  cursor: pointer;
+  color: #195bce;
+  
+
+}
+
 .dashboard-horizontal-box-item-accent {
   font-size: 12px;
   font-weight: bold;
+  width: 45px;
 }
 
 .dashboard-horizontal-add-activity {
@@ -1416,7 +1472,52 @@ code {
 
 
 /*===================================================================*/
-.testing {
+/* EVERY PAGE THINGS */
+.show-big-screen { display: initial; }
+.show-med-screen { display: none; }
+.padding-top-none { padding-top: 0px !important; }
+
+.height-300 { min-height: 300px; }
+
+.dashboard-container-half-height { 
+  min-height: 50%; 
+  max-height: 50%; 
+}
+.dashboard-container-one-third-height { 
+  min-height: 33.3333%;
+  max-height: 33.3333%;  
+}
+.dashboard-container-two-third-height { 
+  min-height: 66.6667%;
+  max-height: 66.6667%;  
+}
+.dashboard-half-container {
+  flex-basis: 50%;
+  flex-grow: 0;
+  max-width: 50%;
+}
+
+.dashboard-one-third-container {
+  flex-basis: 33.3333%;
+  flex-grow: 0;
+  max-width: 33.3333%;
+}
+
+.dashboard-two-third-container {
+  flex-basis: 66.6667%;
+  flex-grow: 0;
+  max-width: 66.6667%;
+}
+
+.dashboard-full-container {
+  flex-basis: 100%;
+  flex-grow: 0;
+  max-width: 100%;
+}
+
+
+/*===================================================================*/
+.dashboard-page-scroll-wrapper {
   flex-grow: 1;
     width: 100%;
     padding: 1.5rem;
@@ -1430,7 +1531,7 @@ code {
   
   
   /* Hide scrollbar for Chrome, Safari and Opera */
-  .testing::-webkit-scrollbar {
+  .dashboard-page-scroll-wrapper::-webkit-scrollbar {
     display: none;
   }
 
@@ -1476,6 +1577,7 @@ code {
 
 .new-dashboard-card {
   height: calc(100% - 1.5rem);
+  max-width: calc(100% - 1.5rem);
   flex-basis: 100%;
   background: var(--Primary-Dashboard-Background);
   box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
@@ -1950,6 +2052,72 @@ code {
   .overview-time-breakdown-card-chart {
     padding-bottom: 75px;
   }
+
   
-  
+}
+
+/*=================================================================*/
+/*=================================================================*/
+
+
+.activity-statistics-container {
+  flex-basis: 66.6667%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 66.6667%;
+}
+
+.activity-log-container-height{ height: 700px ;}
+.activity-log-container {
+  flex-basis: 33.3333%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 33.3333%;
+}
+
+.activity-statistics-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -1.5rem;
+  flex: 1 1;
+}
+
+
+.activity-container-1 {
+  flex-basis: 50%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 50%;
+}
+
+.activity-container-2 {
+  height: 350px;
+}
+
+
+.groopfit-container-footer-short {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  background-color: #191919;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: rgb(0 0 0) 0px 0px 8px 1px;
+}
+
+@media (max-width: 1450px) {
+  .activity-log-container, 
+  .activity-statistics-container {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .activity-container-1 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .show-big-screen { display: none; }
+  .show-med-screen { display: initial; }
+
 }

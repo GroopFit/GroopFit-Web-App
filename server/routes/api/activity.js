@@ -3,11 +3,11 @@ const router = express.Router();
 const activityController = require('../../controllers/activityController');
 
 router.route('/')
-    .get(activityController.getAllActivities)
-    .post(activityController.createActivity);
+    .get(activityController.getAllUsersActivities);
 
 router.route('/:id')
-    .get(activityController.getActivity)
+    .get(activityController.getAllUserActivities)
+    .post(activityController.createActivity)
     .delete(activityController.deleteActivity)
     .put(activityController.replaceActivity)
     .patch(activityController.updateActivity);

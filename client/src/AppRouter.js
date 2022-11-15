@@ -10,12 +10,14 @@ import DashboardActivities from './components/pages/DashboardActivities/index';
 import DashboardOverview from './components/pages/DashboardOverview/index';
 import DashboardGroops from './components/pages/DashboardGroops/index';
 import ComingSoonPage from './components/pages/ComingSoon/index';
+import DashboardChallenge  from './components/pages/DashboardChallenge/index';
+
 
 const LoginSignupPage = lazy(() => import('./components/pages/LoginSignupPage/index'));
 const RegisterPage = lazy(() => import('./components/pages/Register/index'));
 const DashboardWrapper = lazy(() => import('./components/DashboardWrapper/index'));
 const DashboardHome = lazy(() => import('./components/pages/DashboardHome/index'));
-const DashboardChallenge = lazy(() => import('./components/pages/DashboardChallenge/index'));
+//const DashboardChallenge = lazy(() => import('./components/pages/DashboardChallenge/index'));
 
 class AppRouter extends React.Component {
   render() {
@@ -52,6 +54,11 @@ class AppRouter extends React.Component {
                                       <DashboardChallenge />
                                     </DashboardWrapper> 
                                   : <Navigate to="/" /> } path={'/dashboard/challenges'} exact />
+                <Route element={  this.props.accessToken !== null ? 
+                                    <DashboardWrapper >
+                                      <></>
+                                    </DashboardWrapper> 
+                                  : <Navigate to="/" /> } path={'/dashboard/settings'} exact />
               </> : <></> }
               { process.env.REACT_APP_ENVIRONMENT === "production" ? 
                   <>
