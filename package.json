@@ -20,7 +20,11 @@
   "homepage": "https://github.com/GroopFit/GroopFit-Web-App#readme",
   "dependencies": {
     "concurrently": "^7.4.0",
+    "react": "^16.14.0",
     "react-apexcharts": "^1.4.0",
+    "react-dom": "^16.14.0",
+    "react-is": "^16.13.1",
+    "styled-components": "^5.3.6",
     "wait-on": "^6.0.1"
   }
 }
