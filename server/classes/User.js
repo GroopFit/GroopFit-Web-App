@@ -319,6 +319,24 @@ class User{
         
     }
 
+    /**
+     * To remove an activity for this User. 
+     * @param {Activity} activity 
+     * @returns {Object} either a success object or a failure object with the error.
+     */
+     removeActivity(activity) {
+        //make sure its an activity
+        if( activity instanceof Activity ){
+           //make sure it does exist
+           if ((self.activities.include(activity))) {
+               //implement best way to actually remoce the activity
+           }
+           return {successful: false, response: null, error: "Activity does not exist for user"}
+        }
+        return {successful: false, response: null, error: "argument must be instance of activity class"}
+        
+    }
+
 }
 
 module.exports = User;
