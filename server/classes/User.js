@@ -1,4 +1,5 @@
-const DatabaseManager = require('../database/DatabaseManager')
+const DatabaseManager = require('../database/DatabaseManager');
+const Activity = require('./Activity');
 
 class User{
     //need to pass in email so we can query for the right User
@@ -298,6 +299,24 @@ class User{
         } else {
            return { successful: false, response: null, error: Query.error }  
         }
+    }
+
+    /**
+     * To add an activity for this User. 
+     * @param {Activity} activity 
+     * @returns {Object} either a success object or a failure object with the error.
+     */
+    addActivity(activity) {
+        //make sure its an activity
+        if( activity instanceof Activity ){
+           //make sure it doesn't already exist
+           if (!(self.activities.include(activity))) {
+               self.activities.push(activity)
+           }
+           return {successful: false, response: null, error: "Activity already exists for user"}
+        }
+        return {successful: false, response: null, error: "argument must be instance of activity class"}
+        
     }
 
 }
