@@ -309,8 +309,9 @@ class User{
     addActivity(activity) {
         //make sure its an activity
         if( activity instanceof Activity ){
-           //make sure it doesn't already exist
-           if (!(self.activities.include(activity))) {
+            //make sure it doesn't already exist
+            index = self.activities.findIndex((x)=>x.activity_data_id = activity.activity_data_id)
+           if (index==-1) {
                self.activities.push(activity)
            }
            return {successful: false, response: null, error: "Activity already exists for user"}
@@ -328,8 +329,9 @@ class User{
         //make sure its an activity
         if( activity instanceof Activity ){
            //make sure it does exist
-           if ((self.activities.include(activity))) {
-               //implement best way to actually remoce the activity
+           index = self.activities.findIndex((x)=>x.activity_data_id = activity.activity_data_id)
+           if (index!=-1) {
+               self.activities.splice(index,1)
            }
            return {successful: false, response: null, error: "Activity does not exist for user"}
         }
