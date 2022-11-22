@@ -74,8 +74,8 @@ class DashboardGroop extends React.Component {
                   </div>
               </div> */}
               {/* ============================================================   */}
-              <div className="flex flex_check_total_back_up">
-                <div className="flex groop-grid-b4_2" ><GroopRecentActivity /></div>
+              <div className="dashboard-page-scroll-wrapper">
+                
                 <div className="flex flow-row flex_check_up">
                   <div className="flex flow-col flex_check_50">
                     <div className="groop-grid-b1_2 flex flow-col" >
@@ -106,15 +106,15 @@ class DashboardGroop extends React.Component {
                     </div>
                   </div>
                   <div className="flex flow-col flex_check_50">
-                    <div className="groop-grid-b3_2" ><GroopLeaderboard /></div>
-                    <div className="groop-grid-b6_2" >
+                    <div className="margin-top-none dashboard-container-two-third-height dashboard-container" ><GroopLeaderboard /></div>
+                    <div className=" dashboard-container-one-third-height dashboard-container" >
                       <div className="groopfit-container flex center icon-bg-pink" >
                         <GoIcons.GoGraph color={'#fff'}  fontSize={'5.00rem'} />
                       </div>
                     </div>
                   </div>
                 </div>
-                
+                <div className="flex groop-grid-b4_2" ><GroopRecentActivity /></div>
                 <div className="flex groop-grid-b5_2" ><GroopMemberList /></div>
               </div>
             </>            

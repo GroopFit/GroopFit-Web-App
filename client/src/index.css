@@ -1547,8 +1547,8 @@ code {
   max-height: 50%; 
 }
 .dashboard-container-one-third-height { 
-  min-height: 33.3333%;
-  max-height: 33.3333%;  
+  min-height: 33.3333 !important;
+  max-height: 33.3333% !important;  
 }
 .dashboard-container-two-third-height { 
   min-height: 66.6667%;
