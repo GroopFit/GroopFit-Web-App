@@ -1,6 +1,10 @@
 import axios from "axios";
 
-// Response Interceptor
+/**
+ * Intercepts responses made by axios and responds accordingly.  
+ * @param {Function} successFunction function that takes in success object and makes any changes to response if necessary
+ * @param {Function} errorFunction function that takes in error object and retries request when response returns 403 error
+*/
 const respInterceptor = axios.interceptors.response.use(
     // 2xx Response - return response
     response => response,

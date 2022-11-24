@@ -85,18 +85,17 @@ export const pingpongAsync = createAsyncThunk(
             console.log(response.data);
             return response.data;
         })
-        .catch(async error => { // use middleware, make interceptor on every call
-            if (error.response.status === 403) {
-                await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
-                console.log("error " + error);
+        // .catch(async error => { // use middleware, make interceptor on every call
+        //     if (error.response.status === 403) {
+        //         await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
+        //         console.log("error " + error);
 
-                // limits recursion to 5 retries
-                if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
-                    await thunkAPI.dispatch(pingpongAsync(payload)).payload;
-                }
-                return { err: 404 };
-            }
-            throw new Error(error); 
-        })
+        //         // limits recursion to 5 retries
+        //         if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
+        //             await thunkAPI.dispatch(pingpongAsync(payload)).payload;
+        //         }
+        //         return { err: 404 };
+        //     }
+        // })
     }
 );
