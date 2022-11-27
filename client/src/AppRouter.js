@@ -26,32 +26,32 @@ class AppRouter extends React.Component {
               { process.env.REACT_APP_ENVIRONMENT === "development" ? <>
                 <Route element={ <LoginSignupPage /> } path={'/'} exact />
                 <Route element={ <ComingSoonPage /> } path={'/coming-soon'} exact />
-                <Route element={  this.props.accessToken !== null ? 
+                <Route element={ 
                                     <DashboardWrapper >
                                       <DashboardHome />
                                     </DashboardWrapper> 
-                                  : <Navigate to="/" /> } path={'/dashboard'} exact />
-                <Route element={  this.props.accessToken !== null ? 
+                                } path={'/dashboard'} exact />
+                <Route element={
                                     <DashboardWrapper >
                                       {/* Need to create this routes component */}
                                       <DashboardOverview />
                                     </DashboardWrapper > 
-                                  : <Navigate to="/" /> } path={'/dashboard/overview'} exact />
-                <Route element={  this.props.accessToken !== null ? 
+                                  } path={'/dashboard/overview'} exact />
+                <Route element={
                                     <DashboardWrapper>
                                       <DashboardActivities />
                                     </DashboardWrapper> 
-                                  : <Navigate to="/" /> } path={'/dashboard/activities'} exact />
+                                  } path={'/dashboard/activities'} exact />
                 <Route element={  this.props.accessToken !== null ? 
                                     <DashboardWrapper >
                                       <DashboardGroops />
                                     </DashboardWrapper> 
                                   : <Navigate to="/" /> } path={'/dashboard/groups'} exact />
-                <Route element={  this.props.accessToken !== null ? 
+                <Route element={ 
                                     <DashboardWrapper >
                                       <DashboardChallenge />
                                     </DashboardWrapper> 
-                                  : <Navigate to="/" /> } path={'/dashboard/challenges'} exact />
+                                } path={'/dashboard/challenges'} exact />
                 <Route element={  this.props.accessToken !== null ? 
                                     <DashboardWrapper >
                                       <></>
