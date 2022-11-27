@@ -13,25 +13,49 @@ import GroopMemberList from "./GroopMemberList"
 //AiOutlineCaretUp
 //AiOutlineLine
 //AiOutlineCaretDown
+
+
 class DashboardGroop extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-       
+          size: document.documentElement.clientWidth,
+          judge:true
         };
     }
 
+    changeSize = () => {
+      this.setState({size: document.documentElement.clientWidth});
+    }
 
     componentDidMount(){
       console.log(this.props.userData)
 
     } 
-    
+    changeLayout(){
+      if (this.state.size < 1100) {
+        if (this.state.judge) {
+          this.setState({judge:false});
+          var before = document.getElementsByClassName("flex_check_total");
+          alert(before)
+          before.innerHTML = "check";
+        }
+        else {
+          this.setState({judge:true});
+          var before = document.getElementsByClassName("display_first_none");
+          before.style.display="none";
+          var after = document.getElementsByClassName("flex_check_total");
+          after.style.display="default";
+        }
+      }
+    }
 
   render() {
+    window.addEventListener('resize',this.changeSize);
+    // this.changeLayout();
     return <>
-              {/* <div className="flex flex_check_total">
+              <div className="flex flex_check_total">
                   <div className="flex flex_check1 flex_check">
                     <div className="groop-grid-b1 flex flow-col" >
                       <div className="groop-dash-title-box">
@@ -72,10 +96,9 @@ class DashboardGroop extends React.Component {
                       </div>
                     </div>
                   </div>
-              </div> */}
+              </div>
               {/* ============================================================   */}
-              <div className="dashboard-page-scroll-wrapper">
-                
+              <div className="dashboard-page-scroll-wrapper display_first_none">
                 <div className="flex flow-row flex_check_up">
                   <div className="flex flow-col flex_check_50">
                     <div className="groop-grid-b1_2 flex flow-col" >
