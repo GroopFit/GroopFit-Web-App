@@ -785,7 +785,24 @@ code {
 .groop-grid-b6 {
   height: 30%;
 }
-
+.flex_row {
+  flex-flow: row;
+}
+.flex_col {
+  flex-flow: column;
+}
+.height_100 {
+  height: 100%;
+}
+.height_70 {
+  height: 70%;
+}
+.height_15 {
+  height: 15%;
+}
+.height_20 {
+  height: 20%;
+}
 .flex_check_total_back_up{
   /* display: none; */
   justify-content: center;
