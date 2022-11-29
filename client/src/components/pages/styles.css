@@ -69,22 +69,26 @@
     display: block;
     height: 100%;
     /* width: 100%; the width value of the bar */
+    /* background: rgb(35, 210, 58); */
     border-radius: 6px;
     animation: progress 0.4s ease-in-out forwards;
     opacity: 0;
 }
 
-.skill-box .progress-blue-bg{
+.progress-blue-bg{
     background: rgb(88, 137, 209);
 }
-.skill-box .progress-green-bg{
+.progress-green-bg{
     background: rgb(35, 210, 58);
 }
-.skill-box .progress-white-bg{
+.progress-white-bg{
     background: rgb(255, 255, 255);
 }
-.skill-box .progress-purple-bg{
+.progress-purple-bg{
     background: rgb(223, 33, 223);
+}
+.progress-grey-bg{
+    background: rgb(123, 120, 123);
 }
 
 .skill-box .percentages {

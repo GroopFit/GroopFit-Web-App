@@ -10,9 +10,9 @@ class ProgressBar extends React.Component {
     };
 }
    render () {
-    const color_array = ["blue", "white", "purple", "green"];
+    const color_array = ["blue", "white", "purple", "green", "grey"];
     let found = false;
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         if (color_array[i] == this.props.color) {
             found = true;
             break;
@@ -27,11 +27,10 @@ class ProgressBar extends React.Component {
         color = this.props.color;
     }
        return <div className="container">
-           {/* <h1 className="title-text">Progress Bar</h1> */}
            <div className="skill-box">
                <span className="title">Running</span>
                <div className={"skill-bar"} style={{width: this.props.percentage}}>
-                   <span className={"skill-per"} style = {{background: color}}>
+                   <span className={`skill-per progress-${color}-bg`}>
                        <span className="tooltip">{this.props.percentage}</span>
                        <span className="percentages">0% 20% 40% 60% 80% 100%</span>
                    </span>
