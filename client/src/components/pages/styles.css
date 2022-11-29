@@ -17,10 +17,10 @@
 
 .container{
     position: relative;
-    max-width: 500px;
+    max-width: 360px;
     width: 100%;
     background: rgb(0 0 0) 0px 0px 8px 1px;
-    margin: 0 15px;
+    margin: 0 40px;
     padding: 10px 20px;
     border-radius: 7px;
 }
@@ -28,7 +28,7 @@
 .title-text {
     text-align: center;
     background-color: rgb(90, 189, 118);
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-weight: 400;
     border-radius: 50px;
     margin-top: 15px;
@@ -46,6 +46,15 @@
     font-weight: 600;
     color: rgb(255, 255, 255);
 }
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    width: 60px;
+}
 
 .skill-box .skill-bar{
     height: 8px;
@@ -59,12 +68,37 @@
     position: relative;
     display: block;
     height: 100%;
-    width: 95%;
+    /* width: 100%; the width value of the bar */
     border-radius: 6px;
-    background: rgb(90, 189, 118);
     animation: progress 0.4s ease-in-out forwards;
     opacity: 0;
 }
+
+.skill-box .progress-blue-bg{
+    background: rgb(88, 137, 209);
+}
+.skill-box .progress-green-bg{
+    background: rgb(35, 210, 58);
+}
+.skill-box .progress-white-bg{
+    background: rgb(255, 255, 255);
+}
+.skill-box .progress-purple-bg{
+    background: rgb(223, 33, 223);
+}
+
+.skill-box .percentages {
+    position: absolute;
+    word-spacing: 40px;
+    background:rgb(178, 116, 39);
+    height: 30%;
+    width: 350px; 
+    display: block;
+    top: 28px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
 
 
 
