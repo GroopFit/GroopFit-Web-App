@@ -4,8 +4,8 @@ import * as authAPI from './authAPI'
 import axios from 'axios';
 import React from "react";
 
-import reqInterceptor from '../../middleware/reqInterceptor';
-import respInterceptor from '../../middleware/reqInterceptor';
+//import reqInterceptor from '../../middleware/reqInterceptor';
+import respInterceptor from '../../middleware/reqInterceptor.js';
 
 export const getUserDataAsync = createAsyncThunk(
     'user/getData/getUserDataASync',
@@ -81,48 +81,23 @@ export const pingpongAsync = createAsyncThunk(
             retryCt: 5,
             retryTimeout: 1000 
         }
-
-        axios.interceptors.response.use(
-            // 2xx Response - return response
-            undefined,
-            (err) => {
-                const { config, message } = err;
-                //console.log("err " + err);
-                //console.log("config " + config);
-                //Object.keys(config).forEach((prop)=> console.log(prop));
-
-                if (!config || !config.retryCt) {
-                    return Promise.reject(err);
-                }
-        
-                config.retryCt -= 1;
-                console.log("retrying reqs... retry ct at " + config.retryCt);
-                const retryReq = new Promise((resolve) => {
-                    setTimeout(() => {
-                        console.log("retrying post req", config.url);
-                        resolve();
-                    }, config.retryTimeout || 1000);
-                });
-                return retryReq.then(() => axios(config));
-            }
-        );
         
         axios.post(fetchRoute, payload, config)
         .then((response) => {
             console.log("responsedata" + response.data);
             return response.data;
         })
-        .catch(async error => { // use middleware, make interceptor on every call
-            if (error.response.status === 403) {
-                await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
-                console.log("error " + error);
+        // .catch(async error => { // use middleware, make interceptor on every call
+        //     if (error.response.status === 403) {
+        //         await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
+        //         console.log("error " + error);
 
-                // limits recursion to 5 retries
-                if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
-                    await thunkAPI.dispatch(pingpongAsync(payload)).payload;
-                }
-                return { err: 404 };
-            }
-        })
+        //         // limits recursion to 5 retries
+        //         if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
+        //             await thunkAPI.dispatch(pingpongAsync(payload)).payload;
+        //         }
+        //         return { err: 404 };
+        //     }
+        // })
     }
 );

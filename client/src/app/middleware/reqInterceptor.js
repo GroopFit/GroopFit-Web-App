@@ -12,20 +12,7 @@ const reqInterceptor = axios.interceptors.request.use(
     // 2xx Response
     successfulReq => successfulReq,
     (err) => {
-        const { config, message } = err;
-        console.log("error msg: " + message);
-        if (!config || !config.retryCt) {
-            return Promise.reject(err);
-        }
-
-        config.retryCt -= 1;
-        const retryReq = new Promise((resolve) => {
-            setTimeout(() => {
-                console.log("retrying post req", config.url);
-                resolve();
-            }, config.retryTimeout || 1000);
-        });
-        return retryReq.then(() => axios(config));
+        return Promise.reject(err);
     }
 );
 
