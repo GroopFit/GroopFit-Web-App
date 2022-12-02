@@ -28,13 +28,16 @@ class Register extends React.Component {
       goal: ""
     };
   }
-  
+
+  handleChange = (e)=>{
+    const name = e.target.name
+    this.setState(()=>({[name]: e.target.value}));
+    
+  }
 
   PopulateArray = () => {
     this.state.arr = [];
     for (let i = 0; i < 4; i++) {
-      // console.log("i=",i);
-      // console.log(this.state.circle);
       this.state.arr.push(<Circle key={i} className={i<=this.state.circle?"circle active":"circle"} num={i}>{i}</Circle>);
     }
     this.state.width = 100/(3)*this.state.circle;
@@ -63,13 +66,13 @@ class Register extends React.Component {
 
   PageDisplay = () => {
     if (this.state.circle == 0){
-      return <Account />;
+      return <Account formData={this.state} handleChange={this.handleChange} />;
     }else if (this.state.circle == 1){
-      return <Personal />;
+      return <Personal formData={this.state} handleChange={this.handleChange} />;
     }else if (this.state.circle == 2){
-      return <Fitness />;
+      return <Fitness formData={this.state} handleChange={this.handleChange} />;
     }else{
-      return <Goals />;
+      return <Goals formData={this.state} handleChange={this.handleChange} />;
     }
   };
   
@@ -85,7 +88,6 @@ class Register extends React.Component {
           <div className="progressbar">
             <div className="progress" style={{width:this.state.width+"%"}}></div>
             {this.state.arr}
-            
           </div>
           <div className="FormContent">
             <div className="header">{this.state.FormTitle[this.state.circle]}</div>
@@ -93,8 +95,8 @@ class Register extends React.Component {
               {this.PageDisplay()}
             </div>
             <div className="button">
-              <button className="prev btn" onClick={()=>{this.PrevSlide()}}>prev</button>
-              <button className="next btn" onClick={()=>{this.NextSlide()}}>next</button>
+              <button className="prev btn" onClick={()=>{this.PrevSlide()}}>Prev</button>
+              <button className="next btn" onClick={()=>{this.NextSlide()}}>Next</button>
               <button className="submit btn hidden" onClick={()=>{this.submitting()}}>Submit</button>
             </div>
           </div>

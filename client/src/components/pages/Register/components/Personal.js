@@ -1,12 +1,12 @@
 import React from "react";
 
-function Personal(){
+function Personal({formData, handleChange}){
   return(
-    <div className="PageContainer">
-      <input type="text" placeholder="Given Name..." />
-      <input type="text" placeholder="Family Name..." />
-      <input type="text" placeholder="Birthday..." />
-    </div>
+    <form className="PageContainer">
+      <input type="text" name="firstName" placeholder="First Name..." value={formData.firstName} onChange={handleChange} />
+      <input type="text" name="lastName" placeholder="Last Name..." value={formData.lastName} onChange={handleChange}/>
+      <input type="text" name="bday" placeholder="Birthday..."value={formData.bday} onChange={handleChange} />
+    </form>
   );
 }
 export default Personal;

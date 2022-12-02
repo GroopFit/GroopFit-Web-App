@@ -1,11 +1,11 @@
 import React from "react";
 
-function Goals(){
+function Goals({formData, handleChange}){
   return(
-    <div className="PageContainer">
-      <input type="text" placeholder="Desired Weight..." />
-      <input type="text" placeholder="Goal..." />
-    </div>
+    <form className="PageContainer">
+      <input type="text" name="goalWeight" placeholder="Desired Weight..." value={formData.goalWeight == 0?"":formData.goalWeight} onChange={handleChange} />
+      <input type="text" name="goal" placeholder="Goal..." value={formData.goal} onChange={handleChange}/>
+    </form>
   );
 }
 export default Goals;

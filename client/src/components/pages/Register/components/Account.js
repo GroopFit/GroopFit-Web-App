@@ -1,11 +1,11 @@
 import React from "react";
-function Account(){
-  return(
-    <div className="PageContainer">
-      <input type="text" placeholder="Email" />
-      <input type="text" placeholder="Username..." />
-      <input type="text" placeholder="Password..." />
-    </div>
-  );
+function Account({formData, handleChange}){ 
+    return(
+      <form className="PageContainer">
+        <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+        <input type="text" name="username" placeholder="Username..." value={formData.username} onChange={handleChange} />
+        <input type="text" name="pass" placeholder="Password..."  value={formData.pass} onChange={handleChange}/>
+      </form>
+    );
 }
 export default Account;
