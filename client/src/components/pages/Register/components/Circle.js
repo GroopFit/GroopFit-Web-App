@@ -6,6 +6,5 @@ class Circle extends React.Component{
       <div className={this.props.className}>{this.props.num}</div>
     )
   }
-  
 };
 export default Circle
