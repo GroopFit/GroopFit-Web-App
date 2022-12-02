@@ -10,12 +10,16 @@ const respInterceptor = axios.interceptors.response.use(
     response => response,
     (err) => {
         const { config, message } = err;
+        console.log("err " + err);
+        console.log("config " + config);
+        //Object.keys(config).forEach((prop)=> console.log(prop));
 
         if (!config || !config.retryCt) {
             return Promise.reject(err);
         }
 
         config.retryCt -= 1;
+        console.log("retrying reqs... retry ct at " + config.retryCt);
         const retryReq = new Promise((resolve) => {
             setTimeout(() => {
                 console.log("retrying post req", config.url);

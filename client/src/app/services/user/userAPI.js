@@ -67,8 +67,8 @@ export const getUserDataAsync = createAsyncThunk(
 export const pingpongAsync = createAsyncThunk(
     'user/pingpong/pingpongAsync',
     async (payload, thunkAPI) => {
-        payload['retryCt'] = 5;
-        payload['retryTimeout'] = 1000;
+        //payload['retryCt'] = 5;
+        //payload['retryTimeout'] = 1000;
 
         console.log("Starting to send data: ", payload)
         let fetchRoute = `http://localhost:8000/pingpong`;
@@ -77,25 +77,52 @@ export const pingpongAsync = createAsyncThunk(
             headers: { 
                 'Content-Type': 'application/json',
                 'Authorization':  `Bearer ${store.getState().userData.auth.accessToken}`  
-            }
+            },
+            retryCt: 5,
+            retryTimeout: 1000 
         }
+
+        axios.interceptors.response.use(
+            // 2xx Response - return response
+            undefined,
+            (err) => {
+                const { config, message } = err;
+                //console.log("err " + err);
+                //console.log("config " + config);
+                //Object.keys(config).forEach((prop)=> console.log(prop));
+
+                if (!config || !config.retryCt) {
+                    return Promise.reject(err);
+                }
+        
+                config.retryCt -= 1;
+                console.log("retrying reqs... retry ct at " + config.retryCt);
+                const retryReq = new Promise((resolve) => {
+                    setTimeout(() => {
+                        console.log("retrying post req", config.url);
+                        resolve();
+                    }, config.retryTimeout || 1000);
+                });
+                return retryReq.then(() => axios(config));
+            }
+        );
         
         axios.post(fetchRoute, payload, config)
         .then((response) => {
-            console.log(response.data);
+            console.log("responsedata" + response.data);
             return response.data;
         })
-        // .catch(async error => { // use middleware, make interceptor on every call
-        //     if (error.response.status === 403) {
-        //         await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
-        //         console.log("error " + error);
+        .catch(async error => { // use middleware, make interceptor on every call
+            if (error.response.status === 403) {
+                await thunkAPI.dispatch(authAPI.refreshAccessTokenAsync());
+                console.log("error " + error);
 
-        //         // limits recursion to 5 retries
-        //         if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
-        //             await thunkAPI.dispatch(pingpongAsync(payload)).payload;
-        //         }
-        //         return { err: 404 };
-        //     }
-        // })
+                // limits recursion to 5 retries
+                if (store.getState().userData.info.refreshTokenRequestCount <= 5) {
+                    await thunkAPI.dispatch(pingpongAsync(payload)).payload;
+                }
+                return { err: 404 };
+            }
+        })
     }
 );
