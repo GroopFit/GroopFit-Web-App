@@ -14,6 +14,7 @@ import DashboardChallenge  from './components/pages/DashboardChallenge/index';
 
 
 const LoginSignupPage = lazy(() => import('./components/pages/LoginSignupPage/index'));
+const RegisterPage = lazy(() => import('./components/pages/Register/index'));
 const DashboardWrapper = lazy(() => import('./components/DashboardWrapper/index'));
 const DashboardHome = lazy(() => import('./components/pages/DashboardHome/index'));
 //const DashboardChallenge = lazy(() => import('./components/pages/DashboardChallenge/index'));
@@ -25,6 +26,7 @@ class AppRouter extends React.Component {
           <Routes >
               { process.env.REACT_APP_ENVIRONMENT === "development" ? <>
                 <Route element={ <LoginSignupPage /> } path={'/'} exact />
+                <Route element={ <RegisterPage /> } path={'/register'} exact />
                 <Route element={ <ComingSoonPage /> } path={'/coming-soon'} exact />
                 <Route element={  this.props.accessToken !== null ? 
                                     <DashboardWrapper >
