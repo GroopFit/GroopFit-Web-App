@@ -28,7 +28,7 @@ class ProgressBar extends React.Component {
     }
        return <div className="container">
            <div className="skill-box">
-               <span className="title">Running</span>
+               <span className="title">{this.props.type}</span>
                <div className={"skill-bar"} style={{width: this.props.percentage}}>
                    <span className={`skill-per progress-${color}-bg`}>
                        <span className="tooltip">{this.props.percentage}</span>

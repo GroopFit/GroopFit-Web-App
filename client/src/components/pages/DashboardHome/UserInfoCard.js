@@ -41,14 +41,20 @@ class UserInfoCard extends React.Component {
                     </div>
                 </div>
                 <div className="overview-user-info-section" >
-                    <div className="overview-user-info-section-title">Weekly Running Progress</div>
+                    <div className="overview-user-info-section-title">Weekly Progress</div>
                     <div>
-                        <ProgressBar percentage="80%" color= "grey"/>
+                        <ProgressBar percentage="80%" color= "blue" type = "Running"/>
+                        <ProgressBar percentage="40%" color= "green" type = "Walking"/>
+                        
                     </div>
                     <div className="overview-user-info-section-content" />
                 </div>
                 <div className="overview-user-info-section" >
-                    <div className="overview-user-info-section-title">Title Goes Here</div>
+                    <div className="overview-user-info-section-title">Monthly Progress</div>
+                    <div>
+                        <ProgressBar percentage="80%" color= "blue" type = "Running"/>
+                        <ProgressBar percentage="40%" color= "green" type = "Walking"/>
+                    </div>
                     <div className="overview-user-info-section-content" />
                 </div>
 
