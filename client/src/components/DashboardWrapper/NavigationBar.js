@@ -1,5 +1,8 @@
 import React, {useCallback} from 'react';
 //import { Link, useNavigate} from 'react-router-dom';
+import _Const from '../../_Constants.js'
+//import SidebarSettingsLogoutData from '../../_Constants.js'
+
 import * as IoIcons from 'react-icons/io';
 import * as IoIcons5 from 'react-icons/io5';
 import * as FA from "react-icons/fa";
@@ -10,75 +13,24 @@ import * as  MdIcon from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 
 
+
 import './dash.css';
 
 
 
-const SidebarPageData = [
-  {
-    title: 'Dashboard',
-    path: '/dashboard',
-    icon: <MdIcon.MdSpaceDashboard />,
-    cName: 'nav-text'
-  },
- /* {
-    title: 'Overview',
-    path: '/dashboard/overview',
-    icon:  <IoIcons5.IoPieChart />,
-    cName: 'nav-text'
-  },*/
-  {
-    title: 'Activities',
-    path: '/dashboard/activities',
-    icon:  <FA.FaRunning />,
-    cName: 'nav-text'
-  },
-/*  {
-    title: 'Activities 2',
-    path: '/dashboard/activities2',
-    icon:  <FA.FaRunning />,
-    cName: 'nav-text'
-  },*/
-  {
-    title: 'My Groops',
-    path: '/dashboard/groups',
-    icon:  <HI.HiUserGroup />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Challenges',
-    path: '/dashboard/challenges',
-    /* Maybe use RiAwardFill, RiSwordFill, TbSwords, IoIosMedal, RiMedalFill */
-    icon:  <RI.RiSwordFill />,
-    cName: 'nav-text'
-  },
-];
 
-const SidebarSettingsLogoutData = [
-  {
-    title: 'Settings',
-    path: '/dashboard/settings',
-    icon: <IoIcons.IoMdSettings />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Log Out',
-    path: '/log out',
-    icon: <IoIcons.IoIosLogOut />,
-    cName: 'nav-text'
-  }
-];
 
 let key_index = 0
 
 const NavigationBar = (props) => {
     const navigate = useNavigate();
     const currentPage = window.location.href.split("/").at(-1)
+    //console.log(SidebarPageData)
   
       return (
         <div className="dash-bar"  >
           <div className="dash-bar-top">
-              {SidebarPageData.map((item) => {
+              {_Const.SidebarPageData.map((item) => {
                   return  (currentPage === item.path.split("/").at(-1)) ? <div className="dash-bar-item" style={{ background: '#1e1e1e',
                                                                                                 width: props.currentWidth,
                                                                                                 color: '#fff',
@@ -96,7 +48,7 @@ const NavigationBar = (props) => {
               })}
           </div>
           <div className="bottom-sidebar-items">
-              {SidebarSettingsLogoutData.map((item) => {
+              {_Const.SidebarSettingsLogoutData.map((item) => {
                   return (currentPage === item.path.split("/").at(-1)) ?   <div className="dash-bar-item" style={{ background: '#1e1e1e', width: props.currentWidth, }} key={key_index++} onClick={() => navigate(item.path)}>
                                                               <div className="dash-bar-item-selected" key={key_index++} style={{ background: 'linear-gradient(195deg, rgb(255, 148, 48) 11.2%, rgb(255, 124, 0) 100.2%)' }} />
                                                               <div className="dash-bar-icon" key={key_index++} > {item.icon} </div>

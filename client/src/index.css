@@ -483,7 +483,7 @@ code {
 
 .dashboard-horizontal-box-item-content-top {
   display: flex;
-  margin: 0px 11px 0px 25px;
+  margin: 0px 11px 0px 35px;
   height: auto;
   align-items: center;
   flex-flow: row;
@@ -566,8 +566,9 @@ code {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 20px;
   height: 100%;
+  
 }
 .dashboard-horizontal-box-item-right:hover {
   color: #ec5800;
@@ -575,7 +576,6 @@ code {
 
 .dashboard-horizontal-box-item-icon:hover {
   cursor: pointer;
-  color: #195bce;
   
 
 }
@@ -584,6 +584,8 @@ code {
   font-size: 12px;
   font-weight: bold;
   width: 45px;
+  position: absolute;
+  top:0; right: 240px; 
 }
 
 .dashboard-horizontal-add-activity {

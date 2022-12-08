@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from 'react-redux';
 import ReactApexChart from 'react-apexcharts'
 import UserIcon from "./UserIcon";
+import ProgressBar from "../ProgressBar";
 
 class UserInfoCard extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          
         };
     }
 
@@ -41,11 +41,20 @@ class UserInfoCard extends React.Component {
                     </div>
                 </div>
                 <div className="overview-user-info-section" >
-                    <div className="overview-user-info-section-title">Title Goes Here</div>
+                    <div className="overview-user-info-section-title">Weekly Progress</div>
+                    <div>
+                        <ProgressBar percentage="80%" color= "blue" type = "Running"/>
+                        <ProgressBar percentage="40%" color= "green" type = "Walking"/>
+                        
+                    </div>
                     <div className="overview-user-info-section-content" />
                 </div>
                 <div className="overview-user-info-section" >
-                    <div className="overview-user-info-section-title">Title Goes Here</div>
+                    <div className="overview-user-info-section-title">Monthly Progress</div>
+                    <div>
+                        <ProgressBar percentage="80%" color= "blue" type = "Running"/>
+                        <ProgressBar percentage="40%" color= "green" type = "Walking"/>
+                    </div>
                     <div className="overview-user-info-section-content" />
                 </div>
 
