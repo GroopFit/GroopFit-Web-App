@@ -1,6 +1,4 @@
---user roles
-
---TODO: foreign keys, on update cascades, check if integers should be serials, etc
+--Should the backend handle all user roles? Or do they need to be assigned? 
 
 --creation of tables
 CREATE TABLE user (
@@ -21,7 +19,7 @@ CREATE TABLE user (
     modified_date timestamp with time zone,
     payment_tier_id integer,
     location_id integer, 
-    military_data_id integer, 
+    FOREIGN KEY (military_data_id) REFERENCES military_data(military_data_id) ON UPDATE CASCADE, 
     picture_url varchar(2048), 
     refresh_token vharchar(2048)
 );
@@ -46,7 +44,7 @@ CREATE TABLE activity_detail (
     long_description varchar(2048),
     create_date timestamp without time zone,
     modified_date timestamp without time zone,
-    fitness_type_id integer
+    FOREIGN KEY (fitness_type_id) REFERENCES fitness_type(fitness_type_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE activity_data (
@@ -58,9 +56,9 @@ CREATE TABLE activity_data (
     end_time timestamp without time zone,
     create_date timestamp without time zone default now(),
     modified_date timestamp without time zone default now(),
-    user_id integer, 
-    activity_detail_id integer, 
-    location_id integer
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON UPDATE CASCADE, 
+    FOREIGN KEY (activity_detail_id) REFERENCES activity_detail(activity_detail_id) ON UPDATE CASCADE, 
+    FOREIGN KEY (location_id) REFERENCES location(location_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE military_data (
@@ -78,15 +76,15 @@ CREATE TABLE user_health_info (
     weight_units varchar(16),
     body_mass_index integer, 
     is_injured boolean, 
-    user_id integer
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE group_member (
     group_member_id serial not NULL primary key, 
     create_date date, 
-    group_id integer, 
-    user_id integer,
-    group_user_permission_id integer
+    FOREIGN KEY (group_id) REFERENCES group(group_id) ON UPDATE CASCADE, 
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON UPDATE CASCADE,
+    FOREIGN KEY (group_user_permission_id) REFERENCES group_member_permission(group_member_permission_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE group_member_permission (
@@ -104,7 +102,7 @@ CREATE TABLE group (
     create_date timestamp without time zone,
     modified_date timestamp without time zone,
     location_id integer, 
-    group_type_id integer
+    FOREIGN KEY (group_type_id) REFERENCES group_type(group_type_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE group_type (
